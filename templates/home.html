@@ -8,6 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
     rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
     crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   <style>
+       #mapid { height: 400px; width: 600px;}
+   </style>
     <title>Encuentrame</title>
 </head>
 <body>
@@ -19,31 +28,54 @@
     <div class="col-5 mx-auto mt-5">
         <h1>
             <ul id="display">
-                <script>
-                    function doPoll(){
-                            $.ajax({
-                                type: 'GET',
-                                url: "{% url 'get_location' %}",
-                                success: function(response){
-                                    console.log(response.latitude)
-                                    $("#display").empty();
-                                    var temp = "<li>Latitud: "+response.latitude+"</li>";
-                                    temp = temp + "<li>Longitud: "+response.longitude+"</li>";
-                                    temp = temp + "<li>Fecha: "+response.date+"</li>";
-                                    temp = temp + "<li>Hora: "+response.time+"</li>";
-                                    $("#display").append(temp);
-                                },
-                                error: function(response){
-                                    alert("No DATA FOUND")
-                                }
-                            })
-                            setTimeout(doPoll, 3000);
-                        }
-
-                    $(document).ready(doPoll);
-                </script>
             </ul>
         </h1>
     </div>
+
+    <div id="mapid" class="col-5 mx-auto mt-5">
+    </div>
+
+    <script>
+        var mymap = L.map('mapid');
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap;',
+            maxZoom: 18,
+        }).addTo(mymap);
+
+        var marker;
+
+        function doPoll(){
+                $.ajax({
+                    type: 'GET',
+                    url: "{% url 'get_location' %}",
+                    success: function(response){
+                        
+                        if (marker != undefined) {
+                            map.removeLayer(marker);
+                        };
+
+                        mymap.setView([response.latitude, response.longitude], 14)
+                        console.log(response)
+                        $("#display").empty();
+                        var temp = "<li>Latitud: "+response.latitude+"</li>";
+                        temp = temp + "<li>Longitud: "+response.longitude+"</li>";
+                        temp = temp + "<li>Fecha: "+response.date+"</li>";
+                        temp = temp + "<li>Hora: "+response.time+"</li>";
+                        $("#display").append(temp);
+
+                        marker = new L.marker([response.latitude, response.longitude]).addTo(mymap)
+                        marker.bindPopup(temp).openPopup();
+                    },
+                    error: function(response){
+                        alert("No DATA FOUND")
+                    }
+                })
+                setTimeout(doPoll, 3000);
+            }
+
+        $(document).ready(doPoll);
+    </script>
+
+    
 </body>
 </html>
