@@ -25,7 +25,7 @@
     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
     
-    <div class="col-5 mx-auto mt-5">
+    <div class="col-6 mx-auto mt-5">
         <h1>
             <ul id="display">
             </ul>
@@ -41,6 +41,7 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap;',
             maxZoom: 18,
         }).addTo(mymap);
+        mymap.setZoom(15);
 
         var marker;
 
@@ -50,11 +51,8 @@
                     url: "{% url 'get_location' %}",
                     success: function(response){
                         
-                        if (marker != undefined) {
-                            map.removeLayer(marker);
-                        };
-
-                        mymap.setView([response.latitude, response.longitude], 14)
+                        
+                        mymap.panTo([response.latitude, response.longitude])
                         console.log(response)
                         $("#display").empty();
                         var temp = "<li>Latitud: "+response.latitude+"</li>";
@@ -62,9 +60,14 @@
                         temp = temp + "<li>Fecha: "+response.date+"</li>";
                         temp = temp + "<li>Hora: "+response.time+"</li>";
                         $("#display").append(temp);
-
-                        marker = new L.marker([response.latitude, response.longitude]).addTo(mymap)
-                        marker.bindPopup(temp).openPopup();
+                        
+                        if (marker != undefined) {
+                            marker.setLatLng([response.latitude, response.longitude])
+                            marker._popup.setContent(temp)
+                        } else {
+                            marker = new L.marker([response.latitude, response.longitude]).addTo(mymap)
+                            marker.bindPopup(temp);
+                        }
                     },
                     error: function(response){
                         alert("No DATA FOUND")
