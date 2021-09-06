@@ -49,9 +49,7 @@
                 $.ajax({
                     type: 'GET',
                     url: "{% url 'get_location' %}",
-                    success: function(response){
-                        
-                        
+                    success: function(response){                       
                         mymap.panTo([response.latitude, response.longitude])
                         console.log(response)
                         $("#display").empty();
@@ -70,7 +68,12 @@
                         }
                     },
                     error: function(response){
-                        alert("No DATA FOUND")
+                        $("#display").empty();
+                        var temp = "<li>Latitud: N/A</li>";
+                        temp = temp + "<li>Longitud: N/A</li>";
+                        temp = temp + "<li>Fecha: N/A</li>";
+                        temp = temp + "<li>Hora: N/A</li>";
+                        $("#display").append(temp);
                     }
                 })
                 setTimeout(doPoll, 3000);
