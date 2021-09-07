@@ -6,4 +6,3 @@ class Location(models.Model):
     longitude = models.CharField(max_length=50)
     date = models.CharField(max_length=50)
     time = models.CharField(max_length=50)
-    

@@ -1,10 +1,17 @@
-import sqlite3
+import sqlite3, sys
 
 from twisted.internet.protocol import DatagramProtocol
 from twisted.internet import reactor
 
 con = sqlite3.connect('db.sqlite3')
 cur = con.cursor()
+port = 3001
+
+if len(sys.argv) > 1 and len(sys.argv) <= 2:
+    port = int(sys.argv[1])
+elif len(sys.argv) > 2:
+    print("Solo se debe especificar el número del puerto.")
+    sys.exit()
 
 class Server(DatagramProtocol):
     def datagramReceived(self, data, addr):
@@ -24,6 +31,6 @@ class Server(DatagramProtocol):
         con.commit()
 
 
-reactor.listenUDP(3001, Server())
-print("Listening on 0.0.0.0:3001")
+reactor.listenUDP(port, Server())
+print(f"Listening on 0.0.0.0:{port}")
 reactor.run()
