@@ -15,7 +15,18 @@
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
    <style>
-       #mapid { height: 400px; width: 600px;}
+       #mapid { height: 480px; width: 700px;}
+
+       table.table-fit {
+            width: auto !important;
+            table-layout: auto !important;
+        }
+        table.table-fit thead th, table.table-fit tfoot th {
+            width: auto !important;
+        }
+        table.table-fit tbody td, table.table-fit tfoot td {
+            width: auto !important;
+}
    </style>
     <title>Encuentrame</title>
 </head>
@@ -25,14 +36,23 @@
     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
     
-    <div class="col-6 mx-auto mt-5">
-        <h1>
-            <ul id="display">
-            </ul>
-        </h1>
+    <!-- <div class="row justify-content-center">
+        <div class="col-sm-auto mt-5">
+            <h2>
+                <div id="display">
+                </div>
+            </h2>
+        </div>
+    </div> -->
+    <div class="container container-xl">
+        <h3>
+            <table class="table table-sm table-fit table-bordered mx-auto mt-5" id="pos">
+                
+            </table>
+        </h3>
     </div>
-
-    <div id="mapid" class="col-5 mx-auto mt-5">
+    
+    <div id="mapid" class="col-5 mx-auto mt-2">
     </div>
 
     <script>
@@ -41,7 +61,7 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap;',
             maxZoom: 18,
         }).addTo(mymap);
-        mymap.setZoom(15);
+        mymap.setZoom(16);
 
         var marker;
 
@@ -52,12 +72,34 @@
                     success: function(response){                       
                         mymap.panTo([response.latitude, response.longitude])
                         console.log(response)
-                        $("#display").empty();
-                        var temp = "<li>Latitud: "+response.latitude+"</li>";
-                        temp = temp + "<li>Longitud: "+response.longitude+"</li>";
-                        temp = temp + "<li>Fecha: "+response.date+"</li>";
-                        temp = temp + "<li>Hora: "+response.time+"</li>";
-                        $("#display").append(temp);
+                        $("#pos").empty();
+                        
+                        table = `
+                        <tbody>
+                            <tr>
+                                <th class="table-primary" scope="row">Latitud</th>
+                                <td colspan="2">${response.latitude}</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" scope="row">Longitud</th>
+                                <td colspan="2">${response.longitude}</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" scope="row">Fecha</th>
+                                <td colspan="2">${response.date}</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" scope="row">Hora</th>
+                                <td colspan="2">${response.time}</td>
+                            </tr>
+                        </tbody>
+                        `;
+
+                        var temp = "<b>Latitud:</b> "+response.latitude+"<br>";
+                        temp = temp + "<b>Longitud:</b> "+response.longitude+"<br>";
+                        temp = temp + "<b>Fecha:</b> "+response.date+"<br>";
+                        temp = temp + "<b>Hora:</b> "+response.time+"<br>";
+                        $("#pos").append(table);
                         
                         if (marker != undefined) {
                             marker.setLatLng([response.latitude, response.longitude])
