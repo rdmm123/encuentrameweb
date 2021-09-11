@@ -1,9 +1,16 @@
-import sqlite3, sys
+import MySQLdb, sys
 
 from twisted.internet.protocol import DatagramProtocol
 from twisted.internet import reactor
+from decouple import config
 
-con = sqlite3.connect('db.sqlite3')
+con = MySQLdb.connect(
+    host=config("DB_HOST"),
+    user=config("DB_USER"),
+    passwd=config("DB_PASS"),
+    db=config("DB_NAME"),
+)
+
 cur = con.cursor()
 port = 3001
 
