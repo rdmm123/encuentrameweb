@@ -1,136 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-    rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-    crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
-   <style>
-       #mapid { height: 550px; width: 98%;}
-
-       table.table-fit {
-            width: auto !important;
-            table-layout: auto !important;
-        }
-        table.table-fit thead th, table.table-fit tfoot th {
-            width: auto !important;
-        }
-        table.table-fit tbody td, table.table-fit tfoot td {
-            width: auto !important;
-}
-   </style>
-    <title>Encuentrame</title>
-</head>
-<body>
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.js"
-    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
-
-    <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-    
-    <div class="container container-xl">
-        <h4>
-            <table class="table table-sm table-fit table-bordered mx-auto mt-4" id="pos">
-                
-            </table>
-        </h4>
+<div class="row flex-nowrap">
+    <div class="col px-0">
+        <div id="mapid">
+        </div> 
     </div>
-    
-    <div id="mapid" class="col-5 mx-auto mt-2">
-    </div>
+</div>
 
-    <script>
-        var mymap = L.map('mapid');
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap;',
-            maxZoom: 18,
-        }).addTo(mymap);
-        mymap.setZoom(16);
+<script>
+    var mymap = L.map('mapid');
+    mymap.invalidateSize();   
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap;',
+        maxZoom: 18,
+    }).addTo(mymap);
+    mymap.setZoom(16);
 
-        var marker;
+    var marker;
 
-        function doPoll(){
-                $.ajax({
-                    type: 'GET',
-                    url: "{% url 'get_location' %}",
-                    success: function(response){                       
-                        mymap.panTo([response.latitude, response.longitude])
-                        console.log(response)
-                        $("#pos").empty();
-                        
-                        table = `
-                        <tbody>
-                            <tr>
-                                <th class="table-primary" scope="row">Latitud</th>
-                                <td colspan="2">${response.latitude}</td>
-                            </tr>
-                            <tr>
-                                <th class="table-primary" scope="row">Longitud</th>
-                                <td colspan="2">${response.longitude}</td>
-                            </tr>
-                            <tr>
-                                <th class="table-primary" scope="row">Fecha</th>
-                                <td colspan="2">${response.date}</td>
-                            </tr>
-                            <tr>
-                                <th class="table-primary" scope="row">Hora</th>
-                                <td colspan="2">${response.time}</td>
-                            </tr>
-                        </tbody>
-                        `;
+    function doPoll(){
+            $.ajax({
+                type: 'GET',
+                url: "{% url 'get_location' %}",
+                success: function(response){                       
+                    mymap.panTo([response.latitude, response.longitude])
+                    console.log(response)
+                    
+                    var table = 
+                    `
+                    <h5>
+                        <table class="table table-sm table-fit table-borderless mx-auto" id="pos">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Latitud</th>
+                                    <td colspan="2" id="latitude"><span class="badge bg-light text-dark rounded-pill border border-dark">${response.latitude}</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Longitud</th>
+                                    <td colspan="2" id="longitude"><span class="badge bg-light text-dark rounded-pill border border-dark">${response.longitude}</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fecha</th>
+                                    <td colspan="2" id="date"><span class="badge bg-light text-dark rounded-pill border border-dark">${response.date}</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Hora</th>
+                                    <td colspan="2" id="time"><span class="badge bg-light text-dark rounded-pill border border-dark">${response.time}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </h5>
+                    `
+                    
+                    if (marker != undefined) {
+                        marker.setLatLng([response.latitude, response.longitude])
+                        marker._popup.setContent(table)
+                    } else {
+                        marker = new L.marker([response.latitude, response.longitude]).addTo(mymap)
+                        marker.bindPopup(table).openPopup();
 
-                        var temp = "<b>Latitud:</b> "+response.latitude+"<br>";
-                        temp = temp + "<b>Longitud:</b> "+response.longitude+"<br>";
-                        temp = temp + "<b>Fecha:</b> "+response.date+"<br>";
-                        temp = temp + "<b>Hora:</b> "+response.time+"<br>";
-                        $("#pos").append(table);
-                        
-                        if (marker != undefined) {
-                            marker.setLatLng([response.latitude, response.longitude])
-                            marker._popup.setContent(temp)
-                        } else {
-                            marker = new L.marker([response.latitude, response.longitude]).addTo(mymap)
-                            marker.bindPopup(temp);
-                        }
-                    },
-                    error: function(response){
-                        $("#display").empty();
-                        var temp = "<li>Latitud: N/A</li>";
-                        temp = temp + "<li>Longitud: N/A</li>";
-                        temp = temp + "<li>Fecha: N/A</li>";
-                        temp = temp + "<li>Hora: N/A</li>";
-                        $("#display").append(temp);
                     }
-                })
-                setTimeout(doPoll, 2000);
-            }
+                },
+                error: function(response){
+                    console.log("error in ajax")
+                }
+            })
+            setTimeout(doPoll, 2000);
+        }
 
-        $(document).ready(doPoll);
-    </script>
-
-    
-</body>
-</html>
+    $(document).ready(doPoll);
+</script>

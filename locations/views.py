@@ -7,7 +7,8 @@ import json
 
 # Create your views here.
 def homepage_view(request):
-    return(render(request, 'home.html'))
+    context = {"home_page": "active"}
+    return(render(request, 'base.html', context))
 
 def get_location(request):
     last_location = Location.objects.latest('id')
