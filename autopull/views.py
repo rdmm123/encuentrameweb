@@ -25,9 +25,7 @@ def git_pull(request):
     # Process the GitHub events
     event = request.META.get('HTTP_X_GITHUB_EVENT', 'ping')
     if event == 'push':
-        os.system("cd /home/ubuntu/encuentrameweb")
-        os.system("git pull")
-        os.system("sudo supervisorctl restart encuentrame:gunicorn")
+        os.system("/home/ubuntu/encuentrameweb/autopull/autopull.sh")
         return HttpResponse('success')
     
     return HttpResponse(status=204)
