@@ -5,7 +5,8 @@ from django.views.decorators.http import require_POST
 
 import requests
 from ipaddress import ip_address, ip_network
-import os
+import subprocess
+
 
 @require_POST
 @csrf_exempt
@@ -25,10 +26,10 @@ def git_pull(request):
     # Process the GitHub events
     event = request.META.get('HTTP_X_GITHUB_EVENT', 'ping')
     if event == 'push':
-        os.system("/home/ubuntu/encuentrameweb/autopull/autopull.sh")
+        subprocess.run(['/home/ubuntu/encuentrameweb/autopull/autopull.sh'])
         return HttpResponse('success')
     
     return HttpResponse(status=204)
 
 def test(request):
-    return HttpResponse('hola')
+    return HttpResponse('chao')
