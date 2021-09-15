@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseForbidden, HttpResponseServerError
+from django.http import HttpResponse, HttpResponseForbidden
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
@@ -21,7 +21,7 @@ def git_pull(request):
         if client_ip_address in ip_network(valid_ip):
             break
     else:
-        return HttpResponse('Permission denied.')
+        return HttpResponseForbidden('Permission denied.')
 
     # Process the GitHub events
     event = request.META.get('HTTP_X_GITHUB_EVENT', 'ping')
