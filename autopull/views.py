@@ -31,3 +31,6 @@ def git_pull(request):
         return HttpResponse('success')
     
     return HttpResponse(status=204)
+
+def test(request):
+    return HttpResponse('hola')
