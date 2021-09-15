@@ -27,7 +27,7 @@ def git_pull(request):
     if event == 'push':
         os.system("cd /home/ubuntu/encuentrameweb")
         os.system("git pull")
-        print("Pulled most recent changes.")
+        os.system("sudo supervisorctl restart encuentrame:gunicorn")
         return HttpResponse('success')
     
     return HttpResponse(status=204)
