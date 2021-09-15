@@ -32,4 +32,4 @@ def git_pull(request):
     return HttpResponse(status=204)
 
 def test(request):
-    return HttpResponse('chao')
+    return HttpResponse('aasdads')

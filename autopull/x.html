@@ -1,0 +1,3819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <title>TabError
+          at /git/pull</title>
+  <style type="text/css">
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; background-color:#fff; color:#000; }
+    body>div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; }
+    h2 { margin-bottom:.8em; }
+    h3 { margin:1em 0 .5em 0; }
+    h4 { margin:0 0 .5em 0; font-weight: normal; }
+    code, pre { font-size: 100%; white-space: pre-wrap; }
+    table { border:1px solid #ccc; border-collapse: collapse; width:100%; background:white; }
+    tbody td, tbody th { vertical-align:top; padding:2px 3px; }
+    thead th {
+      padding:1px 6px 1px 3px; background:#fefefe; text-align:left;
+      font-weight:normal; font-size:11px; border:1px solid #ddd;
+    }
+    tbody th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    table.vars { margin:5px 0 2px 40px; }
+    table.vars td, table.req td { font-family:monospace; }
+    table td.code { width:100%; }
+    table td.code pre { overflow:hidden; }
+    table.source th { color:#666; }
+    table.source td { font-family:monospace; white-space:pre; border-bottom:1px solid #eee; }
+    ul.traceback { list-style-type:none; color: #222; }
+    ul.traceback li.frame { padding-bottom:1em; color:#4f4f4f; }
+    ul.traceback li.user { background-color:#e0e0e0; color:#000 }
+    div.context { padding:10px 0; overflow:hidden; }
+    div.context ol { padding-left:30px; margin:0 10px; list-style-position: inside; }
+    div.context ol li { font-family:monospace; white-space:pre; color:#777; cursor:pointer; padding-left: 2px; }
+    div.context ol li pre { display:inline; }
+    div.context ol.context-line li { color:#464646; background-color:#dfdfdf; padding: 3px 2px; }
+    div.context ol.context-line li span { position:absolute; right:32px; }
+    .user div.context ol.context-line li { background-color:#bbb; color:#000; }
+    .user div.context ol li { color:#666; }
+    div.commands { margin-left: 40px; }
+    div.commands a { color:#555; text-decoration:none; }
+    .user div.commands a { color: black; }
+    #summary { background: #ffc; }
+    #summary h2 { font-weight: normal; color: #666; }
+    #explanation { background:#eee; }
+    #template, #template-not-exist { background:#f6f6f6; }
+    #template-not-exist ul { margin: 0 0 10px 20px; }
+    #template-not-exist .postmortem-section { margin-bottom: 3px; }
+    #unicode-hint { background:#eee; }
+    #traceback { background:#eee; }
+    #requestinfo { background:#f6f6f6; padding-left:120px; }
+    #summary table { border:none; background:transparent; }
+    #requestinfo h2, #requestinfo h3 { position:relative; margin-left:-100px; }
+    #requestinfo h3 { margin-bottom:-1em; }
+    .error { background: #ffc; }
+    .specific { color:#cc3300; font-weight:bold; }
+    h2 span.commands { font-size:.7em; font-weight:normal; }
+    span.commands a:link {color:#5E5694;}
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+    .append-bottom { margin-bottom: 10px; }
+    .fname { user-select: all; }
+  </style>
+  
+  <script>
+    function hideAll(elems) {
+      for (var e = 0; e < elems.length; e++) {
+        elems[e].style.display = 'none';
+      }
+    }
+    window.onload = function() {
+      hideAll(document.querySelectorAll('table.vars'));
+      hideAll(document.querySelectorAll('ol.pre-context'));
+      hideAll(document.querySelectorAll('ol.post-context'));
+      hideAll(document.querySelectorAll('div.pastebin'));
+    }
+    function toggle() {
+      for (var i = 0; i < arguments.length; i++) {
+        var e = document.getElementById(arguments[i]);
+        if (e) {
+          e.style.display = e.style.display == 'none' ? 'block': 'none';
+        }
+      }
+      return false;
+    }
+    function varToggle(link, id) {
+      toggle('v' + id);
+      var s = link.getElementsByTagName('span')[0];
+      var uarr = String.fromCharCode(0x25b6);
+      var darr = String.fromCharCode(0x25bc);
+      s.textContent = s.textContent == uarr ? darr : uarr;
+      return false;
+    }
+    function switchPastebinFriendly(link) {
+      s1 = "Switch to copy-and-paste view";
+      s2 = "Switch back to interactive view";
+      link.textContent = link.textContent.trim() == s1 ? s2: s1;
+      toggle('browserTraceback', 'pastebinTraceback');
+      return false;
+    }
+  </script>
+  
+</head>
+<body>
+<div id="summary">
+  <h1>TabError
+       at /git/pull</h1>
+  <pre class="exception_value">inconsistent use of tabs and spaces in indentation (views.py, line 29)</pre>
+  <table class="meta">
+
+    <tr>
+      <th>Request Method:</th>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <th>Request URL:</th>
+      <td>http://ec2-3-21-19-127.us-east-2.compute.amazonaws.com/git/pull</td>
+    </tr>
+
+    <tr>
+      <th>Django Version:</th>
+      <td>3.2.7</td>
+    </tr>
+
+    <tr>
+      <th>Exception Type:</th>
+      <td>TabError</td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Value:</th>
+      <td><pre>inconsistent use of tabs and spaces in indentation (views.py, line 29)</pre></td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Location:</th>
+      <td><span class="fname">/home/ubuntu/encuentrameweb/autopull/urls.py</span>, line 2, in &lt;module&gt;</td>
+    </tr>
+
+    <tr>
+      <th>Python Executable:</th>
+      <td>/home/ubuntu/env/bin/python3</td>
+    </tr>
+    <tr>
+      <th>Python Version:</th>
+      <td>3.8.10</td>
+    </tr>
+    <tr>
+      <th>Python Path:</th>
+      <td><pre>[&#x27;/home/ubuntu/encuentrameweb&#x27;,
+ &#x27;/home/ubuntu/env/bin&#x27;,
+ &#x27;/usr/lib/python38.zip&#x27;,
+ &#x27;/usr/lib/python3.8&#x27;,
+ &#x27;/usr/lib/python3.8/lib-dynload&#x27;,
+ &#x27;/home/ubuntu/env/lib/python3.8/site-packages&#x27;]</pre></td>
+    </tr>
+    <tr>
+      <th>Server time:</th>
+      <td>Wed, 15 Sep 2021 17:59:01 +0000</td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+<div id="traceback">
+  <h2>Traceback <span class="commands"><a href="#" onclick="return switchPastebinFriendly(this);">
+    Switch to copy-and-paste view</a></span>
+  </h2>
+  <div id="browserTraceback">
+    <ul class="traceback">
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/core/handlers/exception.py</code>, line 47, in inner
+          
+
+          
+            <div class="context" id="c140444424848576">
+              
+                <ol start="40" class="pre-context" id="pre140444424848576">
+                
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>                response = await sync_to_async(response_for_exception, thread_sensitive=False)(request, exc)</pre></li>
+                
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>            return response</pre></li>
+                
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>        return inner</pre></li>
+                
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>    else:</pre></li>
+                
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>        @wraps(get_response)</pre></li>
+                
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>        def inner(request):</pre></li>
+                
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>            try:</pre></li>
+                
+                </ol>
+              
+              <ol start="47" class="context-line">
+                <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>                response = get_response(request)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='48' class="post-context" id="post140444424848576">
+                  
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>            except Exception as exc:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>                response = response_for_exception(request, exc)</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>            return response</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre>        return inner</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424848576', 'post140444424848576')"><pre></pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424848576')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424848576">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>exc</td>
+                    <td class="code"><pre>TabError(&#x27;inconsistent use of tabs and spaces in indentation&#x27;, (&#x27;/home/ubuntu/encuentrameweb/autopull/views.py&#x27;, 29, 32, &quot;\treturn HttpResponse(&#x27;success&#x27;)\n&quot;))</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>get_response</td>
+                    <td class="code"><pre>&lt;django.middleware.common.CommonMiddleware object at 0x7fbbc4123a00&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/git/pull&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/utils/deprecation.py</code>, line 116, in __call__
+          
+
+          
+            <div class="context" id="c140444424848512">
+              
+                <ol start="109" class="pre-context" id="pre140444424848512">
+                
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>    def __call__(self, request):</pre></li>
+                
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>        # Exit out to async mode, if needed</pre></li>
+                
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>        if asyncio.iscoroutinefunction(self.get_response):</pre></li>
+                
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>            return self.__acall__(request)</pre></li>
+                
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>        response = None</pre></li>
+                
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>        if hasattr(self, &#x27;process_request&#x27;):</pre></li>
+                
+                </ol>
+              
+              <ol start="116" class="context-line">
+                <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>            response = self.process_request(request)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='117' class="post-context" id="post140444424848512">
+                  
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>        response = response or self.get_response(request)</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>        if hasattr(self, &#x27;process_response&#x27;):</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>            response = self.process_response(request, response)</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>        return response</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424848512', 'post140444424848512')"><pre>    async def __acall__(self, request):</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424848512')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424848512">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/git/pull&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.middleware.common.CommonMiddleware object at 0x7fbbc4123a00&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/middleware/common.py</code>, line 53, in process_request
+          
+
+          
+            <div class="context" id="c140444424848704">
+              
+                <ol start="46" class="pre-context" id="pre140444424848704">
+                
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre>        # Check for a redirect based on settings.PREPEND_WWW</pre></li>
+                
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre>        host = request.get_host()</pre></li>
+                
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre>        must_prepend = settings.PREPEND_WWW and host and not host.startswith(&#x27;www.&#x27;)</pre></li>
+                
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre>        redirect_url = (&#x27;%s://www.%s&#x27; % (request.scheme, host)) if must_prepend else &#x27;&#x27;</pre></li>
+                
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre>        # Check if a slash should be appended</pre></li>
+                
+                </ol>
+              
+              <ol start="53" class="context-line">
+                <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre>        if self.should_redirect_with_slash(request):</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='54' class="post-context" id="post140444424848704">
+                  
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre>            path = self.get_full_path_with_slash(request)</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre>        else:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre>            path = request.get_full_path()</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre>        # Return a redirect if necessary</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848704', 'post140444424848704')"><pre>        if redirect_url or path != request.get_full_path():</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424848704')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424848704">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>host</td>
+                    <td class="code"><pre>&#x27;ec2-3-21-19-127.us-east-2.compute.amazonaws.com&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>must_prepend</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>redirect_url</td>
+                    <td class="code"><pre>&#x27;&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/git/pull&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.middleware.common.CommonMiddleware object at 0x7fbbc4123a00&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>user_agent</td>
+                    <td class="code"><pre>&#x27;GitHub-Hookshot/915fca4&#x27;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/middleware/common.py</code>, line 70, in should_redirect_with_slash
+          
+
+          
+            <div class="context" id="c140444424847936">
+              
+                <ol start="63" class="pre-context" id="pre140444424847936">
+                
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>    def should_redirect_with_slash(self, request):</pre></li>
+                
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>        Return True if settings.APPEND_SLASH is True and appending a slash to</pre></li>
+                
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>        the request path turns an invalid path into a valid one.</pre></li>
+                
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>        if settings.APPEND_SLASH and not request.path_info.endswith(&#x27;/&#x27;):</pre></li>
+                
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>            urlconf = getattr(request, &#x27;urlconf&#x27;, None)</pre></li>
+                
+                </ol>
+              
+              <ol start="70" class="context-line">
+                <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>            if not is_valid_path(request.path_info, urlconf):</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='71' class="post-context" id="post140444424847936">
+                  
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>                match = is_valid_path(&#x27;%s/&#x27; % request.path_info, urlconf)</pre></li>
+                  
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>                if match:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>                    view = match.func</pre></li>
+                  
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>                    return getattr(view, &#x27;should_append_slash&#x27;, True)</pre></li>
+                  
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre>        return False</pre></li>
+                  
+                  <li onclick="toggle('pre140444424847936', 'post140444424847936')"><pre></pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424847936')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424847936">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/git/pull&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.middleware.common.CommonMiddleware object at 0x7fbbc4123a00&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>urlconf</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/urls/base.py</code>, line 153, in is_valid_path
+          
+
+          
+            <div class="context" id="c140444424847680">
+              
+                <ol start="146" class="pre-context" id="pre140444424847680">
+                
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>def is_valid_path(path, urlconf=None):</pre></li>
+                
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>    &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>    Return the ResolverMatch if the given path resolves against the default URL</pre></li>
+                
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>    resolver, False otherwise. This is a convenience method to make working</pre></li>
+                
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>    with &quot;is this a match?&quot; cases easier, avoiding try...except blocks.</pre></li>
+                
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>    &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>    try:</pre></li>
+                
+                </ol>
+              
+              <ol start="153" class="context-line">
+                <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>        return resolve(path, urlconf)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='154' class="post-context" id="post140444424847680">
+                  
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>    except Resolver404:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>        return False</pre></li>
+                  
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>def translate_url(url, lang_code):</pre></li>
+                  
+                  <li onclick="toggle('pre140444424847680', 'post140444424847680')"><pre>    &quot;&quot;&quot;</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424847680')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424847680">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>path</td>
+                    <td class="code"><pre>&#x27;/git/pull&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>urlconf</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/urls/base.py</code>, line 24, in resolve
+          
+
+          
+            <div class="context" id="c140444424848064">
+              
+                <ol start="17" class="pre-context" id="pre140444424848064">
+                
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre># Overridden URLconfs for each thread are stored here.</pre></li>
+                
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre>_urlconfs = Local()</pre></li>
+                
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre>def resolve(path, urlconf=None):</pre></li>
+                
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre>    if urlconf is None:</pre></li>
+                
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre>        urlconf = get_urlconf()</pre></li>
+                
+                </ol>
+              
+              <ol start="24" class="context-line">
+                <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre>    return get_resolver(urlconf).resolve(path)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='25' class="post-context" id="post140444424848064">
+                  
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre>def reverse(viewname, urlconf=None, args=None, kwargs=None, current_app=None):</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre>    if urlconf is None:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre>        urlconf = get_urlconf()</pre></li>
+                  
+                  <li onclick="toggle('pre140444424848064', 'post140444424848064')"><pre>    resolver = get_resolver(urlconf)</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424848064')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424848064">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>path</td>
+                    <td class="code"><pre>&#x27;/git/pull&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>urlconf</td>
+                    <td class="code"><pre>&#x27;config.urls&#x27;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/urls/resolvers.py</code>, line 556, in resolve
+          
+
+          
+            <div class="context" id="c140444424825408">
+              
+                <ol start="549" class="pre-context" id="pre140444424825408">
+                
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>    def resolve(self, path):</pre></li>
+                
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>        path = str(path)  # path may be a reverse_lazy object</pre></li>
+                
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>        tried = []</pre></li>
+                
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>        match = self.pattern.match(path)</pre></li>
+                
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>        if match:</pre></li>
+                
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>            new_path, args, kwargs = match</pre></li>
+                
+                </ol>
+              
+              <ol start="556" class="context-line">
+                <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>            for pattern in self.url_patterns:</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='557' class="post-context" id="post140444424825408">
+                  
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>                try:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>                    sub_match = pattern.resolve(new_path)</pre></li>
+                  
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>                except Resolver404 as e:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>                    self._extend_tried(tried, pattern, e.args[0].get(&#x27;tried&#x27;))</pre></li>
+                  
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>                else:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424825408', 'post140444424825408')"><pre>                    if sub_match:</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424825408')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424825408">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>match</td>
+                    <td class="code"><pre>(&#x27;git/pull&#x27;, (), {})</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>new_path</td>
+                    <td class="code"><pre>&#x27;git/pull&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>path</td>
+                    <td class="code"><pre>&#x27;/git/pull&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;URLResolver &#x27;config.urls&#x27; (None:None) &#x27;^/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>tried</td>
+                    <td class="code"><pre>[]</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/utils/functional.py</code>, line 48, in __get__
+          
+
+          
+            <div class="context" id="c140444424824960">
+              
+                <ol start="41" class="pre-context" id="pre140444424824960">
+                
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>        Call the function and put the return value in instance.__dict__ so that</pre></li>
+                
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>        subsequent attribute access on the instance returns the cached value</pre></li>
+                
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>        instead of calling cached_property.__get__().</pre></li>
+                
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>        if instance is None:</pre></li>
+                
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>            return self</pre></li>
+                
+                </ol>
+              
+              <ol start="48" class="context-line">
+                <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>        res = instance.__dict__[self.name] = self.func(instance)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='49' class="post-context" id="post140444424824960">
+                  
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>        return res</pre></li>
+                  
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>class classproperty:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>    &quot;&quot;&quot;</pre></li>
+                  
+                  <li onclick="toggle('pre140444424824960', 'post140444424824960')"><pre>    Decorator that converts a method with a single cls argument into a property</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424824960')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424824960">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cls</td>
+                    <td class="code"><pre>&lt;class &#x27;django.urls.resolvers.URLResolver&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>instance</td>
+                    <td class="code"><pre>&lt;URLResolver &#x27;config.urls&#x27; (None:None) &#x27;^/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.utils.functional.cached_property object at 0x7fbbc4f55310&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/urls/resolvers.py</code>, line 598, in url_patterns
+          
+
+          
+            <div class="context" id="c140444424826496">
+              
+                <ol start="591" class="pre-context" id="pre140444424826496">
+                
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>            return import_module(self.urlconf_name)</pre></li>
+                
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>        else:</pre></li>
+                
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>            return self.urlconf_name</pre></li>
+                
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>    @cached_property</pre></li>
+                
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>    def url_patterns(self):</pre></li>
+                
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>        # urlconf_module might be a valid set of patterns, so we default to it</pre></li>
+                
+                </ol>
+              
+              <ol start="598" class="context-line">
+                <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>        patterns = getattr(self.urlconf_module, &quot;urlpatterns&quot;, self.urlconf_module)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='599' class="post-context" id="post140444424826496">
+                  
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>        try:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>            iter(patterns)</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>        except TypeError as e:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>            msg = (</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>                &quot;The included URLconf &#x27;{name}&#x27; does not appear to have any &quot;</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826496', 'post140444424826496')"><pre>                &quot;patterns in it. If you see valid patterns in the file then &quot;</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424826496')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424826496">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;URLResolver &#x27;config.urls&#x27; (None:None) &#x27;^/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/utils/functional.py</code>, line 48, in __get__
+          
+
+          
+            <div class="context" id="c140444424826560">
+              
+                <ol start="41" class="pre-context" id="pre140444424826560">
+                
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>        Call the function and put the return value in instance.__dict__ so that</pre></li>
+                
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>        subsequent attribute access on the instance returns the cached value</pre></li>
+                
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>        instead of calling cached_property.__get__().</pre></li>
+                
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>        if instance is None:</pre></li>
+                
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>            return self</pre></li>
+                
+                </ol>
+              
+              <ol start="48" class="context-line">
+                <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>        res = instance.__dict__[self.name] = self.func(instance)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='49' class="post-context" id="post140444424826560">
+                  
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>        return res</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>class classproperty:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>    &quot;&quot;&quot;</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826560', 'post140444424826560')"><pre>    Decorator that converts a method with a single cls argument into a property</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424826560')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424826560">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cls</td>
+                    <td class="code"><pre>&lt;class &#x27;django.urls.resolvers.URLResolver&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>instance</td>
+                    <td class="code"><pre>&lt;URLResolver &#x27;config.urls&#x27; (None:None) &#x27;^/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.utils.functional.cached_property object at 0x7fbbc4f552b0&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/urls/resolvers.py</code>, line 591, in urlconf_module
+          
+
+          
+            <div class="context" id="c140444424826752">
+              
+                <ol start="584" class="pre-context" id="pre140444424826752">
+                
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>                    tried.append([pattern])</pre></li>
+                
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>            raise Resolver404({&#x27;tried&#x27;: tried, &#x27;path&#x27;: new_path})</pre></li>
+                
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>        raise Resolver404({&#x27;path&#x27;: path})</pre></li>
+                
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>    @cached_property</pre></li>
+                
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>    def urlconf_module(self):</pre></li>
+                
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>        if isinstance(self.urlconf_name, str):</pre></li>
+                
+                </ol>
+              
+              <ol start="591" class="context-line">
+                <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>            return import_module(self.urlconf_name)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='592' class="post-context" id="post140444424826752">
+                  
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>        else:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>            return self.urlconf_name</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>    @cached_property</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>    def url_patterns(self):</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826752', 'post140444424826752')"><pre>        # urlconf_module might be a valid set of patterns, so we default to it</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424826752')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424826752">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;URLResolver &#x27;config.urls&#x27; (None:None) &#x27;^/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">/usr/lib/python3.8/importlib/__init__.py</code>, line 127, in import_module
+          
+
+          
+            <div class="context" id="c140444424826368">
+              
+                <ol start="120" class="pre-context" id="pre140444424826368">
+                
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre>            msg = (&quot;the &#x27;package&#x27; argument is required to perform a relative &quot;</pre></li>
+                
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre>                   &quot;import for {!r}&quot;)</pre></li>
+                
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre>            raise TypeError(msg.format(name))</pre></li>
+                
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre>        for character in name:</pre></li>
+                
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre>            if character != &#x27;.&#x27;:</pre></li>
+                
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre>                break</pre></li>
+                
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre>            level += 1</pre></li>
+                
+                </ol>
+              
+              <ol start="127" class="context-line">
+                <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre>    return _bootstrap._gcd_import(name[level:], package, level)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='128' class="post-context" id="post140444424826368">
+                  
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre>_RELOADING = {}</pre></li>
+                  
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424826368', 'post140444424826368')"><pre>def reload(module):</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424826368')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424826368">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>level</td>
+                    <td class="code"><pre>0</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>name</td>
+                    <td class="code"><pre>&#x27;config.urls&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>package</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap&gt;</code>, line 1014, in _gcd_import
+          
+
+          
+            <div class="context" id="c140444424823104">
+              
+              <ol start="1014" class="context-line">
+                <li onclick="toggle('pre140444424823104', 'post140444424823104')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424823104')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424823104">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>level</td>
+                    <td class="code"><pre>0</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>name</td>
+                    <td class="code"><pre>&#x27;config.urls&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>package</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap&gt;</code>, line 991, in _find_and_load
+          
+
+          
+            <div class="context" id="c140444424826432">
+              
+              <ol start="991" class="context-line">
+                <li onclick="toggle('pre140444424826432', 'post140444424826432')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424826432')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424826432">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>import_</td>
+                    <td class="code"><pre>&lt;function _gcd_import at 0x7fbbc6440430&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>module</td>
+                    <td class="code"><pre>&lt;object object at 0x7fbbc6416060&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>name</td>
+                    <td class="code"><pre>&#x27;config.urls&#x27;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap&gt;</code>, line 975, in _find_and_load_unlocked
+          
+
+          
+            <div class="context" id="c140444424825792">
+              
+              <ol start="975" class="context-line">
+                <li onclick="toggle('pre140444424825792', 'post140444424825792')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424825792')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424825792">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>import_</td>
+                    <td class="code"><pre>&lt;function _gcd_import at 0x7fbbc6440430&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>name</td>
+                    <td class="code"><pre>&#x27;config.urls&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parent</td>
+                    <td class="code"><pre>&#x27;config&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parent_module</td>
+                    <td class="code"><pre>&lt;module &#x27;config&#x27; from &#x27;/home/ubuntu/encuentrameweb/config/__init__.py&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>path</td>
+                    <td class="code"><pre>[&#x27;/home/ubuntu/encuentrameweb/config&#x27;]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>spec</td>
+                    <td class="code"><pre>ModuleSpec(name=&#x27;config.urls&#x27;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fbbc40c2f40&gt;, origin=&#x27;/home/ubuntu/encuentrameweb/config/urls.py&#x27;)</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap&gt;</code>, line 671, in _load_unlocked
+          
+
+          
+            <div class="context" id="c140444424825152">
+              
+              <ol start="671" class="context-line">
+                <li onclick="toggle('pre140444424825152', 'post140444424825152')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424825152')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424825152">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>module</td>
+                    <td class="code"><pre>&lt;module &#x27;config.urls&#x27; from &#x27;/home/ubuntu/encuentrameweb/config/urls.py&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>spec</td>
+                    <td class="code"><pre>ModuleSpec(name=&#x27;config.urls&#x27;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fbbc40c2f40&gt;, origin=&#x27;/home/ubuntu/encuentrameweb/config/urls.py&#x27;)</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap_external&gt;</code>, line 848, in exec_module
+          
+
+          
+            <div class="context" id="c140444424826688">
+              
+              <ol start="848" class="context-line">
+                <li onclick="toggle('pre140444424826688', 'post140444424826688')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424826688')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424826688">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td class="code"><pre>&lt;code object &lt;module&gt; at 0x7fbbc40c8660, file &quot;/home/ubuntu/encuentrameweb/config/urls.py&quot;, line 1&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>module</td>
+                    <td class="code"><pre>&lt;module &#x27;config.urls&#x27; from &#x27;/home/ubuntu/encuentrameweb/config/urls.py&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fbbc40c2f40&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap&gt;</code>, line 219, in _call_with_frames_removed
+          
+
+          
+            <div class="context" id="c140444424825728">
+              
+              <ol start="219" class="context-line">
+                <li onclick="toggle('pre140444424825728', 'post140444424825728')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424825728')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424825728">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>(&lt;code object &lt;module&gt; at 0x7fbbc40c8660, file &quot;/home/ubuntu/encuentrameweb/config/urls.py&quot;, line 1&gt;,
+ {&#x27;__builtins__&#x27;: {&#x27;ArithmeticError&#x27;: &lt;class &#x27;ArithmeticError&#x27;&gt;,
+                   &#x27;AssertionError&#x27;: &lt;class &#x27;AssertionError&#x27;&gt;,
+                   &#x27;AttributeError&#x27;: &lt;class &#x27;AttributeError&#x27;&gt;,
+                   &#x27;BaseException&#x27;: &lt;class &#x27;BaseException&#x27;&gt;,
+                   &#x27;BlockingIOError&#x27;: &lt;class &#x27;BlockingIOError&#x27;&gt;,
+                   &#x27;BrokenPipeError&#x27;: &lt;class &#x27;BrokenPipeError&#x27;&gt;,
+                   &#x27;BufferError&#x27;: &lt;class &#x27;BufferError&#x27;&gt;,
+                   &#x27;BytesWarning&#x27;: &lt;class &#x27;BytesWarning&#x27;&gt;,
+                   &#x27;ChildProcessError&#x27;: &lt;class &#x27;ChildProcessError&#x27;&gt;,
+                   &#x27;ConnectionAbortedError&#x27;: &lt;class &#x27;ConnectionAbortedError&#x27;&gt;,
+                   &#x27;ConnectionError&#x27;: &lt;class &#x27;ConnectionError&#x27;&gt;,
+                   &#x27;ConnectionRefusedError&#x27;: &lt;class &#x27;ConnectionRefusedError&#x27;&gt;,
+                   &#x27;ConnectionResetError&#x27;: &lt;class &#x27;ConnectionResetError&#x27;&gt;,
+                   &#x27;DeprecationWarning&#x27;: &lt;class &#x27;DeprecationWarning&#x27;&gt;,
+                   &#x27;EOFError&#x27;: &lt;class &#x27;EOFError&#x27;&gt;,
+                   &#x27;Ellipsis&#x27;: Ellipsis,
+                   &#x27;EnvironmentError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+                   &#x27;Exception&#x27;: &lt;class &#x27;Exception&#x27;&gt;,
+                   &#x27;False&#x27;: False,
+                   &#x27;FileExistsError&#x27;: &lt;class &#x27;FileExistsError&#x27;&gt;,
+                   &#x27;FileNotFoundError&#x27;: &lt;class &#x27;FileNotFoundError&#x27;&gt;,
+                   &#x27;FloatingPointError&#x27;: &lt;class &#x27;FloatingPointError&#x27;&gt;,
+                   &#x27;FutureWarning&#x27;: &lt;class &#x27;FutureWarning&#x27;&gt;,
+                   &#x27;GeneratorExit&#x27;: &lt;class &#x27;GeneratorExit&#x27;&gt;,
+                   &#x27;IOError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+                   &#x27;ImportError&#x27;: &lt;class &#x27;ImportError&#x27;&gt;,
+                   &#x27;ImportWarning&#x27;: &lt;class &#x27;ImportWarning&#x27;&gt;,
+                   &#x27;IndentationError&#x27;: &lt;class &#x27;IndentationError&#x27;&gt;,
+                   &#x27;IndexError&#x27;: &lt;class &#x27;IndexError&#x27;&gt;,
+                   &#x27;InterruptedError&#x27;: &lt;class &#x27;InterruptedError&#x27;&gt;,
+                   &#x27;IsADirectoryError&#x27;: &lt;class &#x27;IsADirectoryError&#x27;&gt;,
+                   &#x27;KeyError&#x27;: &lt;class &#x27;KeyError&#x27;&gt;,
+                   &#x27;KeyboardInterrupt&#x27;: &lt;class &#x27;KeyboardInterrupt&#x27;&gt;,
+                   &#x27;LookupError&#x27;: &lt;class &#x27;LookupError&#x27;&gt;,
+                   &#x27;MemoryError&#x27;: &lt;class &#x27;MemoryError&#x27;&gt;,
+                   &#x27;ModuleNotFoundError&#x27;: &lt;class &#x27;ModuleNotFoundError&#x27;&gt;,
+                   &#x27;NameError&#x27;: &lt;class &#x27;NameError&#x27;&gt;,
+                   &#x27;None&#x27;: None,
+                   &#x27;NotADirectoryError&#x27;: &lt;class &#x27;NotADirectoryError&#x27;&gt;,
+                   &#x27;NotImplemented&#x27;: NotImplemented,
+                   &#x27;NotImplementedError&#x27;: &lt;class &#x27;NotImplementedError&#x27;&gt;,
+                   &#x27;OSError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+                   &#x27;OverflowError&#x27;: &lt;class &#x27;OverflowError&#x27;&gt;,
+                   &#x27;PendingDeprecationWarning&#x27;: &lt;class &#x27;PendingDeprecationWarning&#x27;&gt;,
+                   &#x27;PermissionError&#x27;: &lt;class &#x27;PermissionError&#x27;&gt;,
+                   &#x27;ProcessLookupError&#x27;: &lt;class &#x27;ProcessLookupError&#x27;&gt;,
+                   &#x27;RecursionError&#x27;: &lt;class &#x27;RecursionError&#x27;&gt;,
+                   &#x27;ReferenceError&#x27;: &lt;class &#x27;ReferenceError&#x27;&gt;,
+                   &#x27;ResourceWarning&#x27;: &lt;class &#x27;ResourceWarning&#x27;&gt;,
+                   &#x27;RuntimeError&#x27;: &lt;class &#x27;RuntimeError&#x27;&gt;,
+                   &#x27;RuntimeWarning&#x27;: &lt;class &#x27;RuntimeWarning&#x27;&gt;,
+                   &#x27;StopAsyncIteration&#x27;: &lt;class &#x27;StopAsyncIteration&#x27;&gt;,
+                   &#x27;StopIteration&#x27;: &lt;class &#x27;StopIteration&#x27;&gt;,
+                   &#x27;SyntaxError&#x27;: &lt;class &#x27;SyntaxError&#x27;&gt;,
+                   &#x27;SyntaxWarning&#x27;: &lt;class &#x27;SyntaxWarning&#x27;&gt;,
+                   &#x27;SystemError&#x27;: &lt;class &#x27;SystemError&#x27;&gt;,
+                   &#x27;SystemExit&#x27;: &lt;class &#x27;SystemExit&#x27;&gt;,
+                   &#x27;TabError&#x27;: &lt;class &#x27;TabError&#x27;&gt;,
+                   &#x27;TimeoutError&#x27;: &lt;class &#x27;TimeoutError&#x27;&gt;,
+                   &#x27;True&#x27;: True,
+                   &#x27;TypeError&#x27;: &lt;class &#x27;TypeError&#x27;&gt;,
+                   &#x27;UnboundLocalError&#x27;: &lt;class &#x27;UnboundLocalError&#x27;&gt;,
+                   &#x27;UnicodeDecodeError&#x27;: &lt;class &#x27;UnicodeDecodeError&#x27;&gt;,
+                   &#x27;UnicodeEncodeError&#x27;: &lt;class &#x27;UnicodeEncodeError&#x27;&gt;,
+                   &#x27;UnicodeError&#x27;: &lt;class &#x27;UnicodeError&#x27;&gt;,
+      … &lt;trimmed 11223 bytes string&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>f</td>
+                    <td class="code"><pre>&lt;built-in function exec&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwds</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">/home/ubuntu/encuentrameweb/config/urls.py</code>, line 22, in &lt;module&gt;
+          
+
+          
+            <div class="context" id="c140444424397376">
+              
+                <ol start="15" class="pre-context" id="pre140444424397376">
+                
+                  <li onclick="toggle('pre140444424397376', 'post140444424397376')"><pre>&quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre140444424397376', 'post140444424397376')"><pre>from django.contrib import admin</pre></li>
+                
+                  <li onclick="toggle('pre140444424397376', 'post140444424397376')"><pre>from django.urls import path, include</pre></li>
+                
+                  <li onclick="toggle('pre140444424397376', 'post140444424397376')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140444424397376', 'post140444424397376')"><pre>urlpatterns = [</pre></li>
+                
+                  <li onclick="toggle('pre140444424397376', 'post140444424397376')"><pre>    path(&#x27;admin/&#x27;, admin.site.urls),</pre></li>
+                
+                  <li onclick="toggle('pre140444424397376', 'post140444424397376')"><pre>    path(&#x27;&#x27;, include(&#x27;locations.urls&#x27;)),</pre></li>
+                
+                </ol>
+              
+              <ol start="22" class="context-line">
+                <li onclick="toggle('pre140444424397376', 'post140444424397376')"><pre>    path(&#x27;&#x27;, include(&#x27;autopull.urls&#x27;)),</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='23' class="post-context" id="post140444424397376">
+                  
+                  <li onclick="toggle('pre140444424397376', 'post140444424397376')"><pre>]</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424397376')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424397376">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>__builtins__</td>
+                    <td class="code"><pre>{&#x27;ArithmeticError&#x27;: &lt;class &#x27;ArithmeticError&#x27;&gt;,
+ &#x27;AssertionError&#x27;: &lt;class &#x27;AssertionError&#x27;&gt;,
+ &#x27;AttributeError&#x27;: &lt;class &#x27;AttributeError&#x27;&gt;,
+ &#x27;BaseException&#x27;: &lt;class &#x27;BaseException&#x27;&gt;,
+ &#x27;BlockingIOError&#x27;: &lt;class &#x27;BlockingIOError&#x27;&gt;,
+ &#x27;BrokenPipeError&#x27;: &lt;class &#x27;BrokenPipeError&#x27;&gt;,
+ &#x27;BufferError&#x27;: &lt;class &#x27;BufferError&#x27;&gt;,
+ &#x27;BytesWarning&#x27;: &lt;class &#x27;BytesWarning&#x27;&gt;,
+ &#x27;ChildProcessError&#x27;: &lt;class &#x27;ChildProcessError&#x27;&gt;,
+ &#x27;ConnectionAbortedError&#x27;: &lt;class &#x27;ConnectionAbortedError&#x27;&gt;,
+ &#x27;ConnectionError&#x27;: &lt;class &#x27;ConnectionError&#x27;&gt;,
+ &#x27;ConnectionRefusedError&#x27;: &lt;class &#x27;ConnectionRefusedError&#x27;&gt;,
+ &#x27;ConnectionResetError&#x27;: &lt;class &#x27;ConnectionResetError&#x27;&gt;,
+ &#x27;DeprecationWarning&#x27;: &lt;class &#x27;DeprecationWarning&#x27;&gt;,
+ &#x27;EOFError&#x27;: &lt;class &#x27;EOFError&#x27;&gt;,
+ &#x27;Ellipsis&#x27;: Ellipsis,
+ &#x27;EnvironmentError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+ &#x27;Exception&#x27;: &lt;class &#x27;Exception&#x27;&gt;,
+ &#x27;False&#x27;: False,
+ &#x27;FileExistsError&#x27;: &lt;class &#x27;FileExistsError&#x27;&gt;,
+ &#x27;FileNotFoundError&#x27;: &lt;class &#x27;FileNotFoundError&#x27;&gt;,
+ &#x27;FloatingPointError&#x27;: &lt;class &#x27;FloatingPointError&#x27;&gt;,
+ &#x27;FutureWarning&#x27;: &lt;class &#x27;FutureWarning&#x27;&gt;,
+ &#x27;GeneratorExit&#x27;: &lt;class &#x27;GeneratorExit&#x27;&gt;,
+ &#x27;IOError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+ &#x27;ImportError&#x27;: &lt;class &#x27;ImportError&#x27;&gt;,
+ &#x27;ImportWarning&#x27;: &lt;class &#x27;ImportWarning&#x27;&gt;,
+ &#x27;IndentationError&#x27;: &lt;class &#x27;IndentationError&#x27;&gt;,
+ &#x27;IndexError&#x27;: &lt;class &#x27;IndexError&#x27;&gt;,
+ &#x27;InterruptedError&#x27;: &lt;class &#x27;InterruptedError&#x27;&gt;,
+ &#x27;IsADirectoryError&#x27;: &lt;class &#x27;IsADirectoryError&#x27;&gt;,
+ &#x27;KeyError&#x27;: &lt;class &#x27;KeyError&#x27;&gt;,
+ &#x27;KeyboardInterrupt&#x27;: &lt;class &#x27;KeyboardInterrupt&#x27;&gt;,
+ &#x27;LookupError&#x27;: &lt;class &#x27;LookupError&#x27;&gt;,
+ &#x27;MemoryError&#x27;: &lt;class &#x27;MemoryError&#x27;&gt;,
+ &#x27;ModuleNotFoundError&#x27;: &lt;class &#x27;ModuleNotFoundError&#x27;&gt;,
+ &#x27;NameError&#x27;: &lt;class &#x27;NameError&#x27;&gt;,
+ &#x27;None&#x27;: None,
+ &#x27;NotADirectoryError&#x27;: &lt;class &#x27;NotADirectoryError&#x27;&gt;,
+ &#x27;NotImplemented&#x27;: NotImplemented,
+ &#x27;NotImplementedError&#x27;: &lt;class &#x27;NotImplementedError&#x27;&gt;,
+ &#x27;OSError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+ &#x27;OverflowError&#x27;: &lt;class &#x27;OverflowError&#x27;&gt;,
+ &#x27;PendingDeprecationWarning&#x27;: &lt;class &#x27;PendingDeprecationWarning&#x27;&gt;,
+ &#x27;PermissionError&#x27;: &lt;class &#x27;PermissionError&#x27;&gt;,
+ &#x27;ProcessLookupError&#x27;: &lt;class &#x27;ProcessLookupError&#x27;&gt;,
+ &#x27;RecursionError&#x27;: &lt;class &#x27;RecursionError&#x27;&gt;,
+ &#x27;ReferenceError&#x27;: &lt;class &#x27;ReferenceError&#x27;&gt;,
+ &#x27;ResourceWarning&#x27;: &lt;class &#x27;ResourceWarning&#x27;&gt;,
+ &#x27;RuntimeError&#x27;: &lt;class &#x27;RuntimeError&#x27;&gt;,
+ &#x27;RuntimeWarning&#x27;: &lt;class &#x27;RuntimeWarning&#x27;&gt;,
+ &#x27;StopAsyncIteration&#x27;: &lt;class &#x27;StopAsyncIteration&#x27;&gt;,
+ &#x27;StopIteration&#x27;: &lt;class &#x27;StopIteration&#x27;&gt;,
+ &#x27;SyntaxError&#x27;: &lt;class &#x27;SyntaxError&#x27;&gt;,
+ &#x27;SyntaxWarning&#x27;: &lt;class &#x27;SyntaxWarning&#x27;&gt;,
+ &#x27;SystemError&#x27;: &lt;class &#x27;SystemError&#x27;&gt;,
+ &#x27;SystemExit&#x27;: &lt;class &#x27;SystemExit&#x27;&gt;,
+ &#x27;TabError&#x27;: &lt;class &#x27;TabError&#x27;&gt;,
+ &#x27;TimeoutError&#x27;: &lt;class &#x27;TimeoutError&#x27;&gt;,
+ &#x27;True&#x27;: True,
+ &#x27;TypeError&#x27;: &lt;class &#x27;TypeError&#x27;&gt;,
+ &#x27;UnboundLocalError&#x27;: &lt;class &#x27;UnboundLocalError&#x27;&gt;,
+ &#x27;UnicodeDecodeError&#x27;: &lt;class &#x27;UnicodeDecodeError&#x27;&gt;,
+ &#x27;UnicodeEncodeError&#x27;: &lt;class &#x27;UnicodeEncodeError&#x27;&gt;,
+ &#x27;UnicodeError&#x27;: &lt;class &#x27;UnicodeError&#x27;&gt;,
+ &#x27;UnicodeTranslateError&#x27;: &lt;class &#x27;UnicodeTranslateError&#x27;&gt;,
+ &#x27;UnicodeWarning&#x27;: &lt;class &#x27;UnicodeWarning&#x27;&gt;,
+ &#x27;UserWarning&#x27;: &lt;class &#x27;UserWarning&#x27;&gt;,
+ &#x27;ValueError&#x27;: &lt;class &#x27;ValueError&#x27;&gt;,
+ &#x27;Warning&#x27;: &lt;class &#x27;Warning&#x27;&gt;,
+ &#x27;ZeroDivisionError&#x27;: &lt;class &#x27;ZeroDivisionError&#x27;&gt;,
+ &#x27;__build_class__&#x27;: &lt;built-in function __build_class__&gt;,
+ &#x27;__debug__&#x27;: True,
+ &#x27;__doc__&#x27;: &#x27;Built-in functions, exceptions, and other objects.\n&#x27;
+            &#x27;\n&#x27;
+            &quot;Noteworthy: None is the `nil&#x27; object; Ellipsis represents `...&#x27; &quot;
+            &#x27;in slices.&#x27;,
+ &#x27;__import__&#x27;: &lt;built-in function __import__&gt;,
+ &#x27;__loader__&#x27;: &lt;class &#x27;_frozen_importlib.BuiltinImporter&#x27;&gt;,
+ &#x27;__name__&#x27;: &#x27;builtins&#x27;,
+ &#x27;__package__&#x27;: &#x27;&#x27;,
+ &#x27;__spec__&#x27;: ModuleSpec(name=&#x27;builtins&#x27;, loader=&lt;class &#x27;_frozen_importlib.BuiltinImporter&#x27;&gt;),
+ &#x27;abs&#x27;: &lt;built-in function abs&gt;,
+ &#x27;all&#x27;: &lt;built-in function all&gt;,
+ &#x27;any&#x27;: &lt;built-in function any&gt;,
+ &#x27;ascii&#x27;: &lt;built-in function ascii&gt;,
+ &#x27;bin&#x27;: &lt;built-in function bin&gt;,
+ &#x27;bool&#x27;: &lt;class &#x27;bool&#x27;&gt;,
+ &#x27;breakpoint&#x27;: &lt;built-in function breakpoint&gt;,
+ &#x27;bytearray&#x27;: &lt;class &#x27;bytearray&#x27;&gt;,
+ &#x27;bytes&#x27;: &lt;class &#x27;bytes&#x27;&gt;,
+ &#x27;callable&#x27;: &lt;built-in function callable&gt;,
+ &#x27;chr&#x27;: &lt;built-in function chr&gt;,
+ &#x27;classmethod&#x27;: &lt;class &#x27;classmethod&#x27;&gt;,
+ &#x27;compile&#x27;: &lt;built-in function compile&gt;,
+ &#x27;complex&#x27;: &lt;class &#x27;complex&#x27;&gt;,
+ &#x27;copyright&#x27;: … &lt;trimmed 6587 bytes string&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__cached__</td>
+                    <td class="code"><pre>&#x27;/home/ubuntu/encuentrameweb/config/__pycache__/urls.cpython-38.pyc&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__doc__</td>
+                    <td class="code"><pre>(&#x27;config URL Configuration\n&#x27;
+ &#x27;\n&#x27;
+ &#x27;The `urlpatterns` list routes URLs to views. For more information please &#x27;
+ &#x27;see:\n&#x27;
+ &#x27;    https://docs.djangoproject.com/en/3.2/topics/http/urls/\n&#x27;
+ &#x27;Examples:\n&#x27;
+ &#x27;Function views\n&#x27;
+ &#x27;    1. Add an import:  from my_app import views\n&#x27;
+ &quot;    2. Add a URL to urlpatterns:  path(&#x27;&#x27;, views.home, name=&#x27;home&#x27;)\n&quot;
+ &#x27;Class-based views\n&#x27;
+ &#x27;    1. Add an import:  from other_app.views import Home\n&#x27;
+ &quot;    2. Add a URL to urlpatterns:  path(&#x27;&#x27;, Home.as_view(), name=&#x27;home&#x27;)\n&quot;
+ &#x27;Including another URLconf\n&#x27;
+ &#x27;    1. Import the include() function: from django.urls import include, path\n&#x27;
+ &quot;    2. Add a URL to urlpatterns:  path(&#x27;blog/&#x27;, include(&#x27;blog.urls&#x27;))\n&quot;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__file__</td>
+                    <td class="code"><pre>&#x27;/home/ubuntu/encuentrameweb/config/urls.py&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__loader__</td>
+                    <td class="code"><pre>&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fbbc40c2f40&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__name__</td>
+                    <td class="code"><pre>&#x27;config.urls&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__package__</td>
+                    <td class="code"><pre>&#x27;config&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__spec__</td>
+                    <td class="code"><pre>ModuleSpec(name=&#x27;config.urls&#x27;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fbbc40c2f40&gt;, origin=&#x27;/home/ubuntu/encuentrameweb/config/urls.py&#x27;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>admin</td>
+                    <td class="code"><pre>&lt;module &#x27;django.contrib.admin&#x27; from &#x27;/home/ubuntu/env/lib/python3.8/site-packages/django/contrib/admin/__init__.py&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>include</td>
+                    <td class="code"><pre>&lt;function include at 0x7fbbc4f575e0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>path</td>
+                    <td class="code"><pre>functools.partial(&lt;function _path at 0x7fbbc4f57700&gt;, Pattern=&lt;class &#x27;django.urls.resolvers.RoutePattern&#x27;&gt;)</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">/home/ubuntu/env/lib/python3.8/site-packages/django/urls/conf.py</code>, line 34, in include
+          
+
+          
+            <div class="context" id="c140444424397440">
+              
+                <ol start="27" class="pre-context" id="pre140444424397440">
+                
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>                &#x27;provide the namespace argument to include() instead.&#x27; % len(arg)</pre></li>
+                
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>            )</pre></li>
+                
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>    else:</pre></li>
+                
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>        # No namespace hint - use manually provided namespace.</pre></li>
+                
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>        urlconf_module = arg</pre></li>
+                
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>    if isinstance(urlconf_module, str):</pre></li>
+                
+                </ol>
+              
+              <ol start="34" class="context-line">
+                <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>        urlconf_module = import_module(urlconf_module)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='35' class="post-context" id="post140444424397440">
+                  
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>    patterns = getattr(urlconf_module, &#x27;urlpatterns&#x27;, urlconf_module)</pre></li>
+                  
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>    app_name = getattr(urlconf_module, &#x27;app_name&#x27;, app_name)</pre></li>
+                  
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>    if namespace and not app_name:</pre></li>
+                  
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>        raise ImproperlyConfigured(</pre></li>
+                  
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>            &#x27;Specifying a namespace in include() without providing an app_name &#x27;</pre></li>
+                  
+                  <li onclick="toggle('pre140444424397440', 'post140444424397440')"><pre>            &#x27;is not supported. Set the app_name attribute in the included &#x27;</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424397440')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424397440">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>app_name</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>arg</td>
+                    <td class="code"><pre>&#x27;autopull.urls&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>namespace</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>urlconf_module</td>
+                    <td class="code"><pre>&#x27;autopull.urls&#x27;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">/usr/lib/python3.8/importlib/__init__.py</code>, line 127, in import_module
+          
+
+          
+            <div class="context" id="c140444424397504">
+              
+                <ol start="120" class="pre-context" id="pre140444424397504">
+                
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre>            msg = (&quot;the &#x27;package&#x27; argument is required to perform a relative &quot;</pre></li>
+                
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre>                   &quot;import for {!r}&quot;)</pre></li>
+                
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre>            raise TypeError(msg.format(name))</pre></li>
+                
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre>        for character in name:</pre></li>
+                
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre>            if character != &#x27;.&#x27;:</pre></li>
+                
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre>                break</pre></li>
+                
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre>            level += 1</pre></li>
+                
+                </ol>
+              
+              <ol start="127" class="context-line">
+                <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre>    return _bootstrap._gcd_import(name[level:], package, level)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='128' class="post-context" id="post140444424397504">
+                  
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre>_RELOADING = {}</pre></li>
+                  
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424397504', 'post140444424397504')"><pre>def reload(module):</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424397504')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424397504">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>level</td>
+                    <td class="code"><pre>0</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>name</td>
+                    <td class="code"><pre>&#x27;autopull.urls&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>package</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap&gt;</code>, line 1014, in _gcd_import
+          
+
+          
+            <div class="context" id="c140444424904576">
+              
+              <ol start="1014" class="context-line">
+                <li onclick="toggle('pre140444424904576', 'post140444424904576')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424904576')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424904576">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>level</td>
+                    <td class="code"><pre>0</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>name</td>
+                    <td class="code"><pre>&#x27;autopull.urls&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>package</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap&gt;</code>, line 991, in _find_and_load
+          
+
+          
+            <div class="context" id="c140444424904448">
+              
+              <ol start="991" class="context-line">
+                <li onclick="toggle('pre140444424904448', 'post140444424904448')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424904448')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424904448">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>import_</td>
+                    <td class="code"><pre>&lt;function _gcd_import at 0x7fbbc6440430&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>module</td>
+                    <td class="code"><pre>&lt;object object at 0x7fbbc6416060&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>name</td>
+                    <td class="code"><pre>&#x27;autopull.urls&#x27;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap&gt;</code>, line 975, in _find_and_load_unlocked
+          
+
+          
+            <div class="context" id="c140444424904064">
+              
+              <ol start="975" class="context-line">
+                <li onclick="toggle('pre140444424904064', 'post140444424904064')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424904064')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424904064">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>import_</td>
+                    <td class="code"><pre>&lt;function _gcd_import at 0x7fbbc6440430&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>name</td>
+                    <td class="code"><pre>&#x27;autopull.urls&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parent</td>
+                    <td class="code"><pre>&#x27;autopull&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parent_module</td>
+                    <td class="code"><pre>&lt;module &#x27;autopull&#x27; from &#x27;/home/ubuntu/encuentrameweb/autopull/__init__.py&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>path</td>
+                    <td class="code"><pre>[&#x27;/home/ubuntu/encuentrameweb/autopull&#x27;]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>spec</td>
+                    <td class="code"><pre>ModuleSpec(name=&#x27;autopull.urls&#x27;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fbbc406a430&gt;, origin=&#x27;/home/ubuntu/encuentrameweb/autopull/urls.py&#x27;)</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap&gt;</code>, line 671, in _load_unlocked
+          
+
+          
+            <div class="context" id="c140444424397888">
+              
+              <ol start="671" class="context-line">
+                <li onclick="toggle('pre140444424397888', 'post140444424397888')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424397888')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424397888">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>module</td>
+                    <td class="code"><pre>&lt;module &#x27;autopull.urls&#x27; from &#x27;/home/ubuntu/encuentrameweb/autopull/urls.py&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>spec</td>
+                    <td class="code"><pre>ModuleSpec(name=&#x27;autopull.urls&#x27;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fbbc406a430&gt;, origin=&#x27;/home/ubuntu/encuentrameweb/autopull/urls.py&#x27;)</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap_external&gt;</code>, line 848, in exec_module
+          
+
+          
+            <div class="context" id="c140444424397824">
+              
+              <ol start="848" class="context-line">
+                <li onclick="toggle('pre140444424397824', 'post140444424397824')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424397824')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424397824">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td class="code"><pre>&lt;code object &lt;module&gt; at 0x7fbbc40e79d0, file &quot;/home/ubuntu/encuentrameweb/autopull/urls.py&quot;, line 1&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>module</td>
+                    <td class="code"><pre>&lt;module &#x27;autopull.urls&#x27; from &#x27;/home/ubuntu/encuentrameweb/autopull/urls.py&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fbbc406a430&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">&lt;frozen importlib._bootstrap&gt;</code>, line 219, in _call_with_frames_removed
+          
+
+          
+            <div class="context" id="c140444424397760">
+              
+              <ol start="219" class="context-line">
+                <li onclick="toggle('pre140444424397760', 'post140444424397760')"><pre>&lt;source code not available&gt;</pre> <span>…</span></li>
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424397760')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424397760">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>(&lt;code object &lt;module&gt; at 0x7fbbc40e79d0, file &quot;/home/ubuntu/encuentrameweb/autopull/urls.py&quot;, line 1&gt;,
+ {&#x27;__builtins__&#x27;: {&#x27;ArithmeticError&#x27;: &lt;class &#x27;ArithmeticError&#x27;&gt;,
+                   &#x27;AssertionError&#x27;: &lt;class &#x27;AssertionError&#x27;&gt;,
+                   &#x27;AttributeError&#x27;: &lt;class &#x27;AttributeError&#x27;&gt;,
+                   &#x27;BaseException&#x27;: &lt;class &#x27;BaseException&#x27;&gt;,
+                   &#x27;BlockingIOError&#x27;: &lt;class &#x27;BlockingIOError&#x27;&gt;,
+                   &#x27;BrokenPipeError&#x27;: &lt;class &#x27;BrokenPipeError&#x27;&gt;,
+                   &#x27;BufferError&#x27;: &lt;class &#x27;BufferError&#x27;&gt;,
+                   &#x27;BytesWarning&#x27;: &lt;class &#x27;BytesWarning&#x27;&gt;,
+                   &#x27;ChildProcessError&#x27;: &lt;class &#x27;ChildProcessError&#x27;&gt;,
+                   &#x27;ConnectionAbortedError&#x27;: &lt;class &#x27;ConnectionAbortedError&#x27;&gt;,
+                   &#x27;ConnectionError&#x27;: &lt;class &#x27;ConnectionError&#x27;&gt;,
+                   &#x27;ConnectionRefusedError&#x27;: &lt;class &#x27;ConnectionRefusedError&#x27;&gt;,
+                   &#x27;ConnectionResetError&#x27;: &lt;class &#x27;ConnectionResetError&#x27;&gt;,
+                   &#x27;DeprecationWarning&#x27;: &lt;class &#x27;DeprecationWarning&#x27;&gt;,
+                   &#x27;EOFError&#x27;: &lt;class &#x27;EOFError&#x27;&gt;,
+                   &#x27;Ellipsis&#x27;: Ellipsis,
+                   &#x27;EnvironmentError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+                   &#x27;Exception&#x27;: &lt;class &#x27;Exception&#x27;&gt;,
+                   &#x27;False&#x27;: False,
+                   &#x27;FileExistsError&#x27;: &lt;class &#x27;FileExistsError&#x27;&gt;,
+                   &#x27;FileNotFoundError&#x27;: &lt;class &#x27;FileNotFoundError&#x27;&gt;,
+                   &#x27;FloatingPointError&#x27;: &lt;class &#x27;FloatingPointError&#x27;&gt;,
+                   &#x27;FutureWarning&#x27;: &lt;class &#x27;FutureWarning&#x27;&gt;,
+                   &#x27;GeneratorExit&#x27;: &lt;class &#x27;GeneratorExit&#x27;&gt;,
+                   &#x27;IOError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+                   &#x27;ImportError&#x27;: &lt;class &#x27;ImportError&#x27;&gt;,
+                   &#x27;ImportWarning&#x27;: &lt;class &#x27;ImportWarning&#x27;&gt;,
+                   &#x27;IndentationError&#x27;: &lt;class &#x27;IndentationError&#x27;&gt;,
+                   &#x27;IndexError&#x27;: &lt;class &#x27;IndexError&#x27;&gt;,
+                   &#x27;InterruptedError&#x27;: &lt;class &#x27;InterruptedError&#x27;&gt;,
+                   &#x27;IsADirectoryError&#x27;: &lt;class &#x27;IsADirectoryError&#x27;&gt;,
+                   &#x27;KeyError&#x27;: &lt;class &#x27;KeyError&#x27;&gt;,
+                   &#x27;KeyboardInterrupt&#x27;: &lt;class &#x27;KeyboardInterrupt&#x27;&gt;,
+                   &#x27;LookupError&#x27;: &lt;class &#x27;LookupError&#x27;&gt;,
+                   &#x27;MemoryError&#x27;: &lt;class &#x27;MemoryError&#x27;&gt;,
+                   &#x27;ModuleNotFoundError&#x27;: &lt;class &#x27;ModuleNotFoundError&#x27;&gt;,
+                   &#x27;NameError&#x27;: &lt;class &#x27;NameError&#x27;&gt;,
+                   &#x27;None&#x27;: None,
+                   &#x27;NotADirectoryError&#x27;: &lt;class &#x27;NotADirectoryError&#x27;&gt;,
+                   &#x27;NotImplemented&#x27;: NotImplemented,
+                   &#x27;NotImplementedError&#x27;: &lt;class &#x27;NotImplementedError&#x27;&gt;,
+                   &#x27;OSError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+                   &#x27;OverflowError&#x27;: &lt;class &#x27;OverflowError&#x27;&gt;,
+                   &#x27;PendingDeprecationWarning&#x27;: &lt;class &#x27;PendingDeprecationWarning&#x27;&gt;,
+                   &#x27;PermissionError&#x27;: &lt;class &#x27;PermissionError&#x27;&gt;,
+                   &#x27;ProcessLookupError&#x27;: &lt;class &#x27;ProcessLookupError&#x27;&gt;,
+                   &#x27;RecursionError&#x27;: &lt;class &#x27;RecursionError&#x27;&gt;,
+                   &#x27;ReferenceError&#x27;: &lt;class &#x27;ReferenceError&#x27;&gt;,
+                   &#x27;ResourceWarning&#x27;: &lt;class &#x27;ResourceWarning&#x27;&gt;,
+                   &#x27;RuntimeError&#x27;: &lt;class &#x27;RuntimeError&#x27;&gt;,
+                   &#x27;RuntimeWarning&#x27;: &lt;class &#x27;RuntimeWarning&#x27;&gt;,
+                   &#x27;StopAsyncIteration&#x27;: &lt;class &#x27;StopAsyncIteration&#x27;&gt;,
+                   &#x27;StopIteration&#x27;: &lt;class &#x27;StopIteration&#x27;&gt;,
+                   &#x27;SyntaxError&#x27;: &lt;class &#x27;SyntaxError&#x27;&gt;,
+                   &#x27;SyntaxWarning&#x27;: &lt;class &#x27;SyntaxWarning&#x27;&gt;,
+                   &#x27;SystemError&#x27;: &lt;class &#x27;SystemError&#x27;&gt;,
+                   &#x27;SystemExit&#x27;: &lt;class &#x27;SystemExit&#x27;&gt;,
+                   &#x27;TabError&#x27;: &lt;class &#x27;TabError&#x27;&gt;,
+                   &#x27;TimeoutError&#x27;: &lt;class &#x27;TimeoutError&#x27;&gt;,
+                   &#x27;True&#x27;: True,
+                   &#x27;TypeError&#x27;: &lt;class &#x27;TypeError&#x27;&gt;,
+                   &#x27;UnboundLocalError&#x27;: &lt;class &#x27;UnboundLocalError&#x27;&gt;,
+                   &#x27;UnicodeDecodeError&#x27;: &lt;class &#x27;UnicodeDecodeError&#x27;&gt;,
+                   &#x27;UnicodeEncodeError&#x27;: &lt;class &#x27;UnicodeEncodeError&#x27;&gt;,
+                   &#x27;UnicodeError&#x27;: &lt;class &#x27;UnicodeError&#x27;&gt;,
+    … &lt;trimmed 10134 bytes string&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>f</td>
+                    <td class="code"><pre>&lt;built-in function exec&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwds</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">/home/ubuntu/encuentrameweb/autopull/urls.py</code>, line 2, in &lt;module&gt;
+          
+
+          
+            <div class="context" id="c140444424397696">
+              
+                <ol start="1" class="pre-context" id="pre140444424397696">
+                
+                  <li onclick="toggle('pre140444424397696', 'post140444424397696')"><pre>from django.urls import path</pre></li>
+                
+                </ol>
+              
+              <ol start="2" class="context-line">
+                <li onclick="toggle('pre140444424397696', 'post140444424397696')"><pre>from .views import git_pull, test</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='3' class="post-context" id="post140444424397696">
+                  
+                  <li onclick="toggle('pre140444424397696', 'post140444424397696')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre140444424397696', 'post140444424397696')"><pre>urlpatterns = [</pre></li>
+                  
+                  <li onclick="toggle('pre140444424397696', 'post140444424397696')"><pre>    path(&#x27;git/pull&#x27;, git_pull, name=&#x27;pull&#x27;),</pre></li>
+                  
+                  <li onclick="toggle('pre140444424397696', 'post140444424397696')"><pre>    path(&#x27;test&#x27;, test, name=&#x27;test&#x27;),</pre></li>
+                  
+                  <li onclick="toggle('pre140444424397696', 'post140444424397696')"><pre>]</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '140444424397696')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v140444424397696">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>__builtins__</td>
+                    <td class="code"><pre>{&#x27;ArithmeticError&#x27;: &lt;class &#x27;ArithmeticError&#x27;&gt;,
+ &#x27;AssertionError&#x27;: &lt;class &#x27;AssertionError&#x27;&gt;,
+ &#x27;AttributeError&#x27;: &lt;class &#x27;AttributeError&#x27;&gt;,
+ &#x27;BaseException&#x27;: &lt;class &#x27;BaseException&#x27;&gt;,
+ &#x27;BlockingIOError&#x27;: &lt;class &#x27;BlockingIOError&#x27;&gt;,
+ &#x27;BrokenPipeError&#x27;: &lt;class &#x27;BrokenPipeError&#x27;&gt;,
+ &#x27;BufferError&#x27;: &lt;class &#x27;BufferError&#x27;&gt;,
+ &#x27;BytesWarning&#x27;: &lt;class &#x27;BytesWarning&#x27;&gt;,
+ &#x27;ChildProcessError&#x27;: &lt;class &#x27;ChildProcessError&#x27;&gt;,
+ &#x27;ConnectionAbortedError&#x27;: &lt;class &#x27;ConnectionAbortedError&#x27;&gt;,
+ &#x27;ConnectionError&#x27;: &lt;class &#x27;ConnectionError&#x27;&gt;,
+ &#x27;ConnectionRefusedError&#x27;: &lt;class &#x27;ConnectionRefusedError&#x27;&gt;,
+ &#x27;ConnectionResetError&#x27;: &lt;class &#x27;ConnectionResetError&#x27;&gt;,
+ &#x27;DeprecationWarning&#x27;: &lt;class &#x27;DeprecationWarning&#x27;&gt;,
+ &#x27;EOFError&#x27;: &lt;class &#x27;EOFError&#x27;&gt;,
+ &#x27;Ellipsis&#x27;: Ellipsis,
+ &#x27;EnvironmentError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+ &#x27;Exception&#x27;: &lt;class &#x27;Exception&#x27;&gt;,
+ &#x27;False&#x27;: False,
+ &#x27;FileExistsError&#x27;: &lt;class &#x27;FileExistsError&#x27;&gt;,
+ &#x27;FileNotFoundError&#x27;: &lt;class &#x27;FileNotFoundError&#x27;&gt;,
+ &#x27;FloatingPointError&#x27;: &lt;class &#x27;FloatingPointError&#x27;&gt;,
+ &#x27;FutureWarning&#x27;: &lt;class &#x27;FutureWarning&#x27;&gt;,
+ &#x27;GeneratorExit&#x27;: &lt;class &#x27;GeneratorExit&#x27;&gt;,
+ &#x27;IOError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+ &#x27;ImportError&#x27;: &lt;class &#x27;ImportError&#x27;&gt;,
+ &#x27;ImportWarning&#x27;: &lt;class &#x27;ImportWarning&#x27;&gt;,
+ &#x27;IndentationError&#x27;: &lt;class &#x27;IndentationError&#x27;&gt;,
+ &#x27;IndexError&#x27;: &lt;class &#x27;IndexError&#x27;&gt;,
+ &#x27;InterruptedError&#x27;: &lt;class &#x27;InterruptedError&#x27;&gt;,
+ &#x27;IsADirectoryError&#x27;: &lt;class &#x27;IsADirectoryError&#x27;&gt;,
+ &#x27;KeyError&#x27;: &lt;class &#x27;KeyError&#x27;&gt;,
+ &#x27;KeyboardInterrupt&#x27;: &lt;class &#x27;KeyboardInterrupt&#x27;&gt;,
+ &#x27;LookupError&#x27;: &lt;class &#x27;LookupError&#x27;&gt;,
+ &#x27;MemoryError&#x27;: &lt;class &#x27;MemoryError&#x27;&gt;,
+ &#x27;ModuleNotFoundError&#x27;: &lt;class &#x27;ModuleNotFoundError&#x27;&gt;,
+ &#x27;NameError&#x27;: &lt;class &#x27;NameError&#x27;&gt;,
+ &#x27;None&#x27;: None,
+ &#x27;NotADirectoryError&#x27;: &lt;class &#x27;NotADirectoryError&#x27;&gt;,
+ &#x27;NotImplemented&#x27;: NotImplemented,
+ &#x27;NotImplementedError&#x27;: &lt;class &#x27;NotImplementedError&#x27;&gt;,
+ &#x27;OSError&#x27;: &lt;class &#x27;OSError&#x27;&gt;,
+ &#x27;OverflowError&#x27;: &lt;class &#x27;OverflowError&#x27;&gt;,
+ &#x27;PendingDeprecationWarning&#x27;: &lt;class &#x27;PendingDeprecationWarning&#x27;&gt;,
+ &#x27;PermissionError&#x27;: &lt;class &#x27;PermissionError&#x27;&gt;,
+ &#x27;ProcessLookupError&#x27;: &lt;class &#x27;ProcessLookupError&#x27;&gt;,
+ &#x27;RecursionError&#x27;: &lt;class &#x27;RecursionError&#x27;&gt;,
+ &#x27;ReferenceError&#x27;: &lt;class &#x27;ReferenceError&#x27;&gt;,
+ &#x27;ResourceWarning&#x27;: &lt;class &#x27;ResourceWarning&#x27;&gt;,
+ &#x27;RuntimeError&#x27;: &lt;class &#x27;RuntimeError&#x27;&gt;,
+ &#x27;RuntimeWarning&#x27;: &lt;class &#x27;RuntimeWarning&#x27;&gt;,
+ &#x27;StopAsyncIteration&#x27;: &lt;class &#x27;StopAsyncIteration&#x27;&gt;,
+ &#x27;StopIteration&#x27;: &lt;class &#x27;StopIteration&#x27;&gt;,
+ &#x27;SyntaxError&#x27;: &lt;class &#x27;SyntaxError&#x27;&gt;,
+ &#x27;SyntaxWarning&#x27;: &lt;class &#x27;SyntaxWarning&#x27;&gt;,
+ &#x27;SystemError&#x27;: &lt;class &#x27;SystemError&#x27;&gt;,
+ &#x27;SystemExit&#x27;: &lt;class &#x27;SystemExit&#x27;&gt;,
+ &#x27;TabError&#x27;: &lt;class &#x27;TabError&#x27;&gt;,
+ &#x27;TimeoutError&#x27;: &lt;class &#x27;TimeoutError&#x27;&gt;,
+ &#x27;True&#x27;: True,
+ &#x27;TypeError&#x27;: &lt;class &#x27;TypeError&#x27;&gt;,
+ &#x27;UnboundLocalError&#x27;: &lt;class &#x27;UnboundLocalError&#x27;&gt;,
+ &#x27;UnicodeDecodeError&#x27;: &lt;class &#x27;UnicodeDecodeError&#x27;&gt;,
+ &#x27;UnicodeEncodeError&#x27;: &lt;class &#x27;UnicodeEncodeError&#x27;&gt;,
+ &#x27;UnicodeError&#x27;: &lt;class &#x27;UnicodeError&#x27;&gt;,
+ &#x27;UnicodeTranslateError&#x27;: &lt;class &#x27;UnicodeTranslateError&#x27;&gt;,
+ &#x27;UnicodeWarning&#x27;: &lt;class &#x27;UnicodeWarning&#x27;&gt;,
+ &#x27;UserWarning&#x27;: &lt;class &#x27;UserWarning&#x27;&gt;,
+ &#x27;ValueError&#x27;: &lt;class &#x27;ValueError&#x27;&gt;,
+ &#x27;Warning&#x27;: &lt;class &#x27;Warning&#x27;&gt;,
+ &#x27;ZeroDivisionError&#x27;: &lt;class &#x27;ZeroDivisionError&#x27;&gt;,
+ &#x27;__build_class__&#x27;: &lt;built-in function __build_class__&gt;,
+ &#x27;__debug__&#x27;: True,
+ &#x27;__doc__&#x27;: &#x27;Built-in functions, exceptions, and other objects.\n&#x27;
+            &#x27;\n&#x27;
+            &quot;Noteworthy: None is the `nil&#x27; object; Ellipsis represents `...&#x27; &quot;
+            &#x27;in slices.&#x27;,
+ &#x27;__import__&#x27;: &lt;built-in function __import__&gt;,
+ &#x27;__loader__&#x27;: &lt;class &#x27;_frozen_importlib.BuiltinImporter&#x27;&gt;,
+ &#x27;__name__&#x27;: &#x27;builtins&#x27;,
+ &#x27;__package__&#x27;: &#x27;&#x27;,
+ &#x27;__spec__&#x27;: ModuleSpec(name=&#x27;builtins&#x27;, loader=&lt;class &#x27;_frozen_importlib.BuiltinImporter&#x27;&gt;),
+ &#x27;abs&#x27;: &lt;built-in function abs&gt;,
+ &#x27;all&#x27;: &lt;built-in function all&gt;,
+ &#x27;any&#x27;: &lt;built-in function any&gt;,
+ &#x27;ascii&#x27;: &lt;built-in function ascii&gt;,
+ &#x27;bin&#x27;: &lt;built-in function bin&gt;,
+ &#x27;bool&#x27;: &lt;class &#x27;bool&#x27;&gt;,
+ &#x27;breakpoint&#x27;: &lt;built-in function breakpoint&gt;,
+ &#x27;bytearray&#x27;: &lt;class &#x27;bytearray&#x27;&gt;,
+ &#x27;bytes&#x27;: &lt;class &#x27;bytes&#x27;&gt;,
+ &#x27;callable&#x27;: &lt;built-in function callable&gt;,
+ &#x27;chr&#x27;: &lt;built-in function chr&gt;,
+ &#x27;classmethod&#x27;: &lt;class &#x27;classmethod&#x27;&gt;,
+ &#x27;compile&#x27;: &lt;built-in function compile&gt;,
+ &#x27;complex&#x27;: &lt;class &#x27;complex&#x27;&gt;,
+ &#x27;copyright&#x27;: … &lt;trimmed 6587 bytes string&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__cached__</td>
+                    <td class="code"><pre>&#x27;/home/ubuntu/encuentrameweb/autopull/__pycache__/urls.cpython-38.pyc&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__doc__</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__file__</td>
+                    <td class="code"><pre>&#x27;/home/ubuntu/encuentrameweb/autopull/urls.py&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__loader__</td>
+                    <td class="code"><pre>&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fbbc406a430&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__name__</td>
+                    <td class="code"><pre>&#x27;autopull.urls&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__package__</td>
+                    <td class="code"><pre>&#x27;autopull&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>__spec__</td>
+                    <td class="code"><pre>ModuleSpec(name=&#x27;autopull.urls&#x27;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fbbc406a430&gt;, origin=&#x27;/home/ubuntu/encuentrameweb/autopull/urls.py&#x27;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>path</td>
+                    <td class="code"><pre>functools.partial(&lt;function _path at 0x7fbbc4f57700&gt;, Pattern=&lt;class &#x27;django.urls.resolvers.RoutePattern&#x27;&gt;)</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+    </ul>
+  </div>
+  <form action="https://dpaste.com/" name="pasteform" id="pasteform" method="post">
+
+  <div id="pastebinTraceback" class="pastebin">
+    <input type="hidden" name="language" value="PythonConsole">
+    <input type="hidden" name="title"
+      value="TabError at /git/pull">
+    <input type="hidden" name="source" value="Django Dpaste Agent">
+    <input type="hidden" name="poster" value="Django">
+    <textarea name="content" id="traceback_area" cols="140" rows="25">
+Environment:
+
+
+Request Method: POST
+Request URL: http://ec2-3-21-19-127.us-east-2.compute.amazonaws.com/git/pull
+
+Django Version: 3.2.7
+Python Version: 3.8.10
+Installed Applications:
+[&#x27;django.contrib.admin&#x27;,
+ &#x27;django.contrib.auth&#x27;,
+ &#x27;django.contrib.contenttypes&#x27;,
+ &#x27;django.contrib.sessions&#x27;,
+ &#x27;django.contrib.messages&#x27;,
+ &#x27;django.contrib.staticfiles&#x27;,
+ &#x27;locations&#x27;]
+Installed Middleware:
+[&#x27;django.middleware.security.SecurityMiddleware&#x27;,
+ &#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;,
+ &#x27;django.middleware.common.CommonMiddleware&#x27;,
+ &#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;,
+ &#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;,
+ &#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;,
+ &#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;]
+
+
+
+Traceback (most recent call last):
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/utils/deprecation.py", line 116, in __call__
+    response = self.process_request(request)
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/middleware/common.py", line 53, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/middleware/common.py", line 70, in should_redirect_with_slash
+    if not is_valid_path(request.path_info, urlconf):
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/urls/base.py", line 153, in is_valid_path
+    return resolve(path, urlconf)
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 556, in resolve
+    for pattern in self.url_patterns:
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 598, in url_patterns
+    patterns = getattr(self.urlconf_module, &quot;urlpatterns&quot;, self.urlconf_module)
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 591, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "&lt;frozen importlib._bootstrap&gt;", line 1014, in _gcd_import
+    &lt;source code not available&gt;
+  File "&lt;frozen importlib._bootstrap&gt;", line 991, in _find_and_load
+    &lt;source code not available&gt;
+  File "&lt;frozen importlib._bootstrap&gt;", line 975, in _find_and_load_unlocked
+    &lt;source code not available&gt;
+  File "&lt;frozen importlib._bootstrap&gt;", line 671, in _load_unlocked
+    &lt;source code not available&gt;
+  File "&lt;frozen importlib._bootstrap_external&gt;", line 848, in exec_module
+    &lt;source code not available&gt;
+  File "&lt;frozen importlib._bootstrap&gt;", line 219, in _call_with_frames_removed
+    &lt;source code not available&gt;
+  File "/home/ubuntu/encuentrameweb/config/urls.py", line 22, in &lt;module&gt;
+    path(&#x27;&#x27;, include(&#x27;autopull.urls&#x27;)),
+  File "/home/ubuntu/env/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "&lt;frozen importlib._bootstrap&gt;", line 1014, in _gcd_import
+    &lt;source code not available&gt;
+  File "&lt;frozen importlib._bootstrap&gt;", line 991, in _find_and_load
+    &lt;source code not available&gt;
+  File "&lt;frozen importlib._bootstrap&gt;", line 975, in _find_and_load_unlocked
+    &lt;source code not available&gt;
+  File "&lt;frozen importlib._bootstrap&gt;", line 671, in _load_unlocked
+    &lt;source code not available&gt;
+  File "&lt;frozen importlib._bootstrap_external&gt;", line 848, in exec_module
+    &lt;source code not available&gt;
+  File "&lt;frozen importlib._bootstrap&gt;", line 219, in _call_with_frames_removed
+    &lt;source code not available&gt;
+  File "/home/ubuntu/encuentrameweb/autopull/urls.py", line 2, in &lt;module&gt;
+    from .views import git_pull, test
+
+Exception Type: TabError at /git/pull
+Exception Value: inconsistent use of tabs and spaces in indentation (views.py, line 29)
+</textarea>
+  <br><br>
+  <input type="submit" value="Share this traceback on a public website">
+  </div>
+</form>
+</div>
+
+
+
+<div id="requestinfo">
+  <h2>Request information</h2>
+
+
+  
+    <h3 id="user-info">USER</h3>
+    <p>[unable to retrieve the current user]</p>
+  
+
+  <h3 id="get-info">GET</h3>
+  
+    <p>No GET data</p>
+  
+
+  <h3 id="post-info">POST</h3>
+  
+    <table class="req">
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>payload</td>
+            <td class="code"><pre>(&#x27;{&quot;ref&quot;:&quot;refs/heads/main&quot;,&quot;before&quot;:&quot;e086496e5cecf198aa9d6e32175ff9b67f95e350&quot;,&quot;after&quot;:&quot;f178ad2cb1b6a89e65f4acd85222fe403d415a45&quot;,&quot;repository&quot;:{&quot;id&quot;:401457250,&quot;node_id&quot;:&quot;MDEwOlJlcG9zaXRvcnk0MDE0NTcyNTA=&quot;,&quot;name&quot;:&quot;encuentrameweb&quot;,&quot;full_name&quot;:&quot;rdmm123/encuentrameweb&quot;,&quot;private&quot;:false,&quot;owner&quot;:{&quot;name&quot;:&quot;rdmm123&quot;,&quot;email&quot;:&quot;31293954+rdmm123@users.noreply.github.com&quot;,&quot;login&quot;:&quot;rdmm123&quot;,&quot;id&quot;:31293954,&quot;node_id&quot;:&quot;MDQ6VXNlcjMxMjkzOTU0&quot;,&quot;avatar_url&quot;:&quot;https://avatars.githubusercontent.com/u/31293954?v=4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/rdmm123&quot;,&quot;html_url&quot;:&quot;https://github.com/rdmm123&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/rdmm123/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/rdmm123/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/rdmm123/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/rdmm123/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/rdmm123/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/rdmm123/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/rdmm123/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/rdmm123/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/rdmm123/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false},&quot;html_url&quot;:&quot;https://github.com/rdmm123/encuentrameweb&quot;,&quot;description&quot;:&quot;Webpage &#x27;
+ &#x27;that displays location data being send over UDP protocol in real &#x27;
+ &#x27;time.&quot;,&quot;fork&quot;:false,&quot;url&quot;:&quot;https://github.com/rdmm123/encuentrameweb&quot;,&quot;forks_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/forks&quot;,&quot;keys_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/keys{/key_id}&quot;,&quot;collaborators_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/collaborators{/collaborator}&quot;,&quot;teams_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/teams&quot;,&quot;hooks_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/hooks&quot;,&quot;issue_events_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/issues/events{/number}&quot;,&quot;events_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/events&quot;,&quot;assignees_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/assignees{/user}&quot;,&quot;branches_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/branches{/branch}&quot;,&quot;tags_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/tags&quot;,&quot;blobs_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/git/blobs{/sha}&quot;,&quot;git_tags_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/git/tags{/sha}&quot;,&quot;git_refs_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/git/refs{/sha}&quot;,&quot;trees_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/git/trees{/sha}&quot;,&quot;statuses_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/statuses/{sha}&quot;,&quot;languages_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/languages&quot;,&quot;stargazers_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/stargazers&quot;,&quot;contributors_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/contributors&quot;,&quot;subscribers_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/subscribers&quot;,&quot;subscription_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/subscription&quot;,&quot;commits_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/commits{/sha}&quot;,&quot;git_commits_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/git/commits{/sha}&quot;,&quot;comments_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/comments{/number}&quot;,&quot;issue_comment_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/issues/comments{/number}&quot;,&quot;contents_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/contents/{+path}&quot;,&quot;compare_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/compare/{base}...{head}&quot;,&quot;merges_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/merges&quot;,&quot;archive_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/{archive_format}{/ref}&quot;,&quot;downloads_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/downloads&quot;,&quot;issues_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/issues{/number}&quot;,&quot;pulls_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/pulls{/number}&quot;,&quot;milestones_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/milestones{/number}&quot;,&quot;notifications_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/notifications{?since,all,participating}&quot;,&quot;labels_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/labels{/name}&quot;,&quot;releases_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/releases{/id}&quot;,&quot;deployments_url&quot;:&quot;https://api.github.com/repos/rdmm123/encuentrameweb/deployments&quot;,&quot;created_at&quot;:1630350466,&quot;updated_at&quot;:&quot;2021-09-15T16:52:34Z&quot;,&quot;pushed_at&quot;:1631725964,&quot;git_url&quot;:&quot;git://github.com/rdmm123/encuentrameweb.git&quot;,&quot;ssh_url&quot;:&quot;git@github.com:rdmm123/encuentrameweb.git&quot;,&quot;clone_url&quot;:&quot;https://github.com/rdmm123/encuentrameweb.git&quot;,&quot;svn_url&quot;:&quot;https://github.com/rdmm123/encuentrameweb&quot;,&quot;homepage&quot;:null,&quot;size&quot;:57,&quot;stargazers_count&quot;:0,&quot;watchers_count&quot;:0,&quot;language&quot;:&quot;Python&quot;,&quot;has_issues&quot;:true,&quot;has_projects&quot;:true,&quot;has_downloads&quot;:true,&quot;has_wiki&quot;:true,&quot;has_pages&quot;:false,&quot;forks_count&quot;:0,&quot;mirror_url&quot;:null,&quot;archived&quot;:false,&quot;disabled&quot;:false,&quot;open_issues_count&quot;:0,&quot;license&quot;:null,&quot;allow_forking&quot;:true,&quot;forks&quot;:0,&quot;open_issues&quot;:0,&quot;watchers&quot;:0,&quot;default_branch&quot;:&quot;main&quot;,&quot;stargazers&quot;:0,&quot;master_branch&quot;:&quot;main&quot;},&quot;pusher&quot;:{&quot;name&quot;:&quot;rdmm123&quot;,&quot;email&quot;:&quot;31293954+rdmm123@users.noreply.github.com&quot;},&quot;sender&quot;:{&quot;login&quot;:&quot;rdmm123&quot;,&quot;id&quot;:31293954,&quot;node_id&quot;:&quot;MDQ6VXNlcjMxMjkzOTU0&quot;,&quot;avatar_url&quot;:&quot;https://avatars.githubusercontent.com/u/31293954?v=4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/rdmm123&quot;,&quot;html_url&quot;:&quot;https://github.com/rdmm123&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/rdmm123/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/rdmm123/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/rdmm123/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/rdmm123/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/rdmm123/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/rdmm123/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/rdmm123/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/rdmm123/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/rdmm123/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false},&quot;created&quot;:false,&quot;deleted&quot;:false,&quot;forced&quot;:false,&quot;base_ref&quot;:null,&quot;compare&quot;:&quot;https://github.com/rdmm123/encuentrameweb/compare/e086496e5cec...f178ad2cb1b6&quot;,&quot;commits&quot;:[{&quot;id&quot;:&quot;f178ad2cb1b6a89e65f4acd85222fe403d415a45&quot;,&quot;tree_id&quot;:&quot;1d4d755b1f23a0a362a68519a9809237099d593c&quot;,&quot;distinct&quot;:true,&quot;message&quot;:&quot;test&quot;,&quot;timestamp&quot;:&quot;2021-09-15T12:12:39-05:00&quot;,&quot;url&quot;:&quot;https://github.com/rdmm123/encuentrameweb/commit/f178ad2cb1b6a89e65f4acd85222fe403d415a45&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;rdmm123&quot;,&quot;email&quot;:&quot;rdmarenco@uninorte.edu.co&quot;,&quot;username&quot;:&quot;rdmm123&quot;},&quot;committer&quot;:{&quot;name&quot;:&quot;rdmm123&quot;,&quot;email&quot;:&quot;rdmarenco@uninorte.edu.co&quot;,&quot;username&quot;:&quot;rdmm123&quot;},&quot;added&quot;:[],&quot;removed&quot;:[],&quot;modified&quot;:[&quot;autopull/views.py&quot;]}],&quot;head_commit&quot;:{&quot;id&quot;:&quot;f178ad2cb1b6a89e65f4acd85222fe403d415a45&quot;,&quot;tree_id&quot;:&quot;1d4d755b1f23a0a362a68519a9809237099d593c&quot;,&quot;distinct&quot;:true,&quot;message&quot;:&quot;test&quot;,&quot;timestamp&quot;:&quot;2021-09-15T12:12:39-05:00&quot;,&quot;url&quot;:&quot;https://github.com/rdmm123/encuentrameweb/commit/f178ad2cb1b6a89e65f4acd85222fe403d415a45&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;rdmm123&quot;,&quot;email&quot;:&quot;rdmarenco@uninorte.edu.co&quot;,&quot;username&quot;:&quot;rdmm123&quot;},&quot;committer&quot;:{&quot;name&quot;:&quot;rdmm123&quot;,&quot;email&quot;:&quot;rdmarenco@uninorte.edu.co&quot;,&quot;username&quot;:&quot;rdmm123&quot;},&quot;added&quot;:[],&quot;removed&quot;:[],&quot;modified&quot;:[&quot;autopull/views.py&quot;]}}&#x27;)</pre></td>
+          </tr>
+        
+      </tbody>
+    </table>
+  
+  <h3 id="files-info">FILES</h3>
+  
+    <p>No FILES data</p>
+  
+
+
+  <h3 id="cookie-info">COOKIES</h3>
+  
+    <p>No cookie data</p>
+  
+
+  <h3 id="meta-info">META</h3>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>CONTENT_LENGTH</td>
+          <td class="code"><pre>&#x27;10365&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_TYPE</td>
+          <td class="code"><pre>&#x27;application/x-www-form-urlencoded&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT</td>
+          <td class="code"><pre>&#x27;*/*&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_CONNECTION</td>
+          <td class="code"><pre>&#x27;close&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_HOST</td>
+          <td class="code"><pre>&#x27;ec2-3-21-19-127.us-east-2.compute.amazonaws.com&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_USER_AGENT</td>
+          <td class="code"><pre>&#x27;GitHub-Hookshot/915fca4&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_X_FORWARDED_FOR</td>
+          <td class="code"><pre>&#x27;140.82.115.242&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_X_FORWARDED_PROTO</td>
+          <td class="code"><pre>&#x27;http&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_X_GITHUB_DELIVERY</td>
+          <td class="code"><pre>&#x27;24c71800-1648-11ec-9bdc-193560c352b6&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_X_GITHUB_EVENT</td>
+          <td class="code"><pre>&#x27;push&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_X_GITHUB_HOOK_ID</td>
+          <td class="code"><pre>&#x27;318363077&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_X_GITHUB_HOOK_INSTALLATION_TARGET_ID</td>
+          <td class="code"><pre>&#x27;401457250&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_X_GITHUB_HOOK_INSTALLATION_TARGET_TYPE</td>
+          <td class="code"><pre>&#x27;repository&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_X_REAL_IP</td>
+          <td class="code"><pre>&#x27;140.82.115.242&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH_INFO</td>
+          <td class="code"><pre>&#x27;/git/pull&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>QUERY_STRING</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RAW_URI</td>
+          <td class="code"><pre>&#x27;/git/pull&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_ADDR</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REQUEST_METHOD</td>
+          <td class="code"><pre>&#x27;POST&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SCRIPT_NAME</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_NAME</td>
+          <td class="code"><pre>&#x27;ec2-3-21-19-127.us-east-2.compute.amazonaws.com&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PORT</td>
+          <td class="code"><pre>&#x27;80&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PROTOCOL</td>
+          <td class="code"><pre>&#x27;HTTP/1.0&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_SOFTWARE</td>
+          <td class="code"><pre>&#x27;gunicorn/20.1.0&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>gunicorn.socket</td>
+          <td class="code"><pre>&lt;socket.socket fd=9, family=AddressFamily.AF_UNIX, type=SocketKind.SOCK_STREAM, proto=0, laddr=/home/ubuntu/encuentrameweb/app.sock&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.errors</td>
+          <td class="code"><pre>&lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7fbbc40c2880&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.file_wrapper</td>
+          <td class="code"><pre>&lt;class &#x27;gunicorn.http.wsgi.FileWrapper&#x27;&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.input</td>
+          <td class="code"><pre>&lt;gunicorn.http.body.Body object at 0x7fbbc578ff70&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.input_terminated</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multiprocess</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multithread</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.run_once</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.url_scheme</td>
+          <td class="code"><pre>&#x27;http&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.version</td>
+          <td class="code"><pre>(1, 0)</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+  <h3 id="settings-info">Settings</h3>
+  <h4>Using settings module <code>config.settings</code></h4>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Setting</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>ABSOLUTE_URL_OVERRIDES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMINS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ALLOWED_HOSTS</td>
+          <td class="code"><pre>[&#x27;*&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPEND_SLASH</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTHENTICATION_BACKENDS</td>
+          <td class="code"><pre>[&#x27;django.contrib.auth.backends.ModelBackend&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTH_PASSWORD_VALIDATORS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTH_USER_MODEL</td>
+          <td class="code"><pre>&#x27;auth.User&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BASE_DIR</td>
+          <td class="code"><pre>PosixPath(&#x27;/home/ubuntu/encuentrameweb&#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHES</td>
+          <td class="code"><pre>{&#x27;default&#x27;: {&#x27;BACKEND&#x27;: &#x27;django.core.cache.backends.locmem.LocMemCache&#x27;}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_ALIAS</td>
+          <td class="code"><pre>&#x27;default&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_SECONDS</td>
+          <td class="code"><pre>600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_AGE</td>
+          <td class="code"><pre>31449600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_NAME</td>
+          <td class="code"><pre>&#x27;csrftoken&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_PATH</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_SAMESITE</td>
+          <td class="code"><pre>&#x27;Lax&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_FAILURE_VIEW</td>
+          <td class="code"><pre>&#x27;django.views.csrf.csrf_failure&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_HEADER_NAME</td>
+          <td class="code"><pre>&#x27;HTTP_X_CSRFTOKEN&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_TRUSTED_ORIGINS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_USE_SESSIONS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASES</td>
+          <td class="code"><pre>{&#x27;default&#x27;: {&#x27;ATOMIC_REQUESTS&#x27;: False,
+             &#x27;AUTOCOMMIT&#x27;: True,
+             &#x27;CONN_MAX_AGE&#x27;: 0,
+             &#x27;ENGINE&#x27;: &#x27;django.db.backends.mysql&#x27;,
+             &#x27;HOST&#x27;: &#x27;diseno.c7baqt6s9nxp.us-east-2.rds.amazonaws.com&#x27;,
+             &#x27;NAME&#x27;: &#x27;encuentramedb&#x27;,
+             &#x27;OPTIONS&#x27;: {},
+             &#x27;PASSWORD&#x27;: &#x27;********************&#x27;,
+             &#x27;PORT&#x27;: &#x27;3306&#x27;,
+             &#x27;TEST&#x27;: {&#x27;CHARSET&#x27;: None,
+                      &#x27;COLLATION&#x27;: None,
+                      &#x27;MIGRATE&#x27;: True,
+                      &#x27;MIRROR&#x27;: None,
+                      &#x27;NAME&#x27;: None},
+             &#x27;TIME_ZONE&#x27;: None,
+             &#x27;USER&#x27;: &#x27;admin&#x27;}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_ROUTERS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATA_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATA_UPLOAD_MAX_NUMBER_FIELDS</td>
+          <td class="code"><pre>1000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_FORMAT</td>
+          <td class="code"><pre>&#x27;N j, Y, P&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_INPUT_FORMATS</td>
+          <td class="code"><pre>[&#x27;%Y-%m-%d %H:%M:%S&#x27;,
+ &#x27;%Y-%m-%d %H:%M:%S.%f&#x27;,
+ &#x27;%Y-%m-%d %H:%M&#x27;,
+ &#x27;%m/%d/%Y %H:%M:%S&#x27;,
+ &#x27;%m/%d/%Y %H:%M:%S.%f&#x27;,
+ &#x27;%m/%d/%Y %H:%M&#x27;,
+ &#x27;%m/%d/%y %H:%M:%S&#x27;,
+ &#x27;%m/%d/%y %H:%M:%S.%f&#x27;,
+ &#x27;%m/%d/%y %H:%M&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_FORMAT</td>
+          <td class="code"><pre>&#x27;N j, Y&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_INPUT_FORMATS</td>
+          <td class="code"><pre>[&#x27;%Y-%m-%d&#x27;,
+ &#x27;%m/%d/%Y&#x27;,
+ &#x27;%m/%d/%y&#x27;,
+ &#x27;%b %d %Y&#x27;,
+ &#x27;%b %d, %Y&#x27;,
+ &#x27;%d %b %Y&#x27;,
+ &#x27;%d %b, %Y&#x27;,
+ &#x27;%B %d %Y&#x27;,
+ &#x27;%B %d, %Y&#x27;,
+ &#x27;%d %B %Y&#x27;,
+ &#x27;%d %B, %Y&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DECIMAL_SEPARATOR</td>
+          <td class="code"><pre>&#x27;.&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_AUTO_FIELD</td>
+          <td class="code"><pre>&#x27;django.db.models.BigAutoField&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CHARSET</td>
+          <td class="code"><pre>&#x27;utf-8&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_EXCEPTION_REPORTER</td>
+          <td class="code"><pre>&#x27;django.views.debug.ExceptionReporter&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
+          <td class="code"><pre>&#x27;django.views.debug.SafeExceptionReporterFilter&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FILE_STORAGE</td>
+          <td class="code"><pre>&#x27;django.core.files.storage.FileSystemStorage&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FROM_EMAIL</td>
+          <td class="code"><pre>&#x27;webmaster@localhost&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_HASHING_ALGORITHM</td>
+          <td class="code"><pre>&#x27;sha256&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_INDEX_TABLESPACE</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_TABLESPACE</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DISALLOWED_USER_AGENTS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_BACKEND</td>
+          <td class="code"><pre>&#x27;django.core.mail.backends.smtp.EmailBackend&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST</td>
+          <td class="code"><pre>&#x27;localhost&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_PASSWORD</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_USER</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_PORT</td>
+          <td class="code"><pre>25</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SSL_CERTFILE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SSL_KEYFILE</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SUBJECT_PREFIX</td>
+          <td class="code"><pre>&#x27;[Django] &#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_TIMEOUT</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_LOCALTIME</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_SSL</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_TLS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_DIRECTORY_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_HANDLERS</td>
+          <td class="code"><pre>[&#x27;django.core.files.uploadhandler.MemoryFileUploadHandler&#x27;,
+ &#x27;django.core.files.uploadhandler.TemporaryFileUploadHandler&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_PERMISSIONS</td>
+          <td class="code"><pre>420</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_TEMP_DIR</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIRST_DAY_OF_WEEK</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIXTURE_DIRS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORCE_SCRIPT_NAME</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORMAT_MODULE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORM_RENDERER</td>
+          <td class="code"><pre>&#x27;django.forms.renderers.DjangoTemplates&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IGNORABLE_404_URLS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INSTALLED_APPS</td>
+          <td class="code"><pre>[&#x27;django.contrib.admin&#x27;,
+ &#x27;django.contrib.auth&#x27;,
+ &#x27;django.contrib.contenttypes&#x27;,
+ &#x27;django.contrib.sessions&#x27;,
+ &#x27;django.contrib.messages&#x27;,
+ &#x27;django.contrib.staticfiles&#x27;,
+ &#x27;locations&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNAL_IPS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES</td>
+          <td class="code"><pre>[(&#x27;af&#x27;, &#x27;Afrikaans&#x27;),
+ (&#x27;ar&#x27;, &#x27;Arabic&#x27;),
+ (&#x27;ar-dz&#x27;, &#x27;Algerian Arabic&#x27;),
+ (&#x27;ast&#x27;, &#x27;Asturian&#x27;),
+ (&#x27;az&#x27;, &#x27;Azerbaijani&#x27;),
+ (&#x27;bg&#x27;, &#x27;Bulgarian&#x27;),
+ (&#x27;be&#x27;, &#x27;Belarusian&#x27;),
+ (&#x27;bn&#x27;, &#x27;Bengali&#x27;),
+ (&#x27;br&#x27;, &#x27;Breton&#x27;),
+ (&#x27;bs&#x27;, &#x27;Bosnian&#x27;),
+ (&#x27;ca&#x27;, &#x27;Catalan&#x27;),
+ (&#x27;cs&#x27;, &#x27;Czech&#x27;),
+ (&#x27;cy&#x27;, &#x27;Welsh&#x27;),
+ (&#x27;da&#x27;, &#x27;Danish&#x27;),
+ (&#x27;de&#x27;, &#x27;German&#x27;),
+ (&#x27;dsb&#x27;, &#x27;Lower Sorbian&#x27;),
+ (&#x27;el&#x27;, &#x27;Greek&#x27;),
+ (&#x27;en&#x27;, &#x27;English&#x27;),
+ (&#x27;en-au&#x27;, &#x27;Australian English&#x27;),
+ (&#x27;en-gb&#x27;, &#x27;British English&#x27;),
+ (&#x27;eo&#x27;, &#x27;Esperanto&#x27;),
+ (&#x27;es&#x27;, &#x27;Spanish&#x27;),
+ (&#x27;es-ar&#x27;, &#x27;Argentinian Spanish&#x27;),
+ (&#x27;es-co&#x27;, &#x27;Colombian Spanish&#x27;),
+ (&#x27;es-mx&#x27;, &#x27;Mexican Spanish&#x27;),
+ (&#x27;es-ni&#x27;, &#x27;Nicaraguan Spanish&#x27;),
+ (&#x27;es-ve&#x27;, &#x27;Venezuelan Spanish&#x27;),
+ (&#x27;et&#x27;, &#x27;Estonian&#x27;),
+ (&#x27;eu&#x27;, &#x27;Basque&#x27;),
+ (&#x27;fa&#x27;, &#x27;Persian&#x27;),
+ (&#x27;fi&#x27;, &#x27;Finnish&#x27;),
+ (&#x27;fr&#x27;, &#x27;French&#x27;),
+ (&#x27;fy&#x27;, &#x27;Frisian&#x27;),
+ (&#x27;ga&#x27;, &#x27;Irish&#x27;),
+ (&#x27;gd&#x27;, &#x27;Scottish Gaelic&#x27;),
+ (&#x27;gl&#x27;, &#x27;Galician&#x27;),
+ (&#x27;he&#x27;, &#x27;Hebrew&#x27;),
+ (&#x27;hi&#x27;, &#x27;Hindi&#x27;),
+ (&#x27;hr&#x27;, &#x27;Croatian&#x27;),
+ (&#x27;hsb&#x27;, &#x27;Upper Sorbian&#x27;),
+ (&#x27;hu&#x27;, &#x27;Hungarian&#x27;),
+ (&#x27;hy&#x27;, &#x27;Armenian&#x27;),
+ (&#x27;ia&#x27;, &#x27;Interlingua&#x27;),
+ (&#x27;id&#x27;, &#x27;Indonesian&#x27;),
+ (&#x27;ig&#x27;, &#x27;Igbo&#x27;),
+ (&#x27;io&#x27;, &#x27;Ido&#x27;),
+ (&#x27;is&#x27;, &#x27;Icelandic&#x27;),
+ (&#x27;it&#x27;, &#x27;Italian&#x27;),
+ (&#x27;ja&#x27;, &#x27;Japanese&#x27;),
+ (&#x27;ka&#x27;, &#x27;Georgian&#x27;),
+ (&#x27;kab&#x27;, &#x27;Kabyle&#x27;),
+ (&#x27;kk&#x27;, &#x27;Kazakh&#x27;),
+ (&#x27;km&#x27;, &#x27;Khmer&#x27;),
+ (&#x27;kn&#x27;, &#x27;Kannada&#x27;),
+ (&#x27;ko&#x27;, &#x27;Korean&#x27;),
+ (&#x27;ky&#x27;, &#x27;Kyrgyz&#x27;),
+ (&#x27;lb&#x27;, &#x27;Luxembourgish&#x27;),
+ (&#x27;lt&#x27;, &#x27;Lithuanian&#x27;),
+ (&#x27;lv&#x27;, &#x27;Latvian&#x27;),
+ (&#x27;mk&#x27;, &#x27;Macedonian&#x27;),
+ (&#x27;ml&#x27;, &#x27;Malayalam&#x27;),
+ (&#x27;mn&#x27;, &#x27;Mongolian&#x27;),
+ (&#x27;mr&#x27;, &#x27;Marathi&#x27;),
+ (&#x27;my&#x27;, &#x27;Burmese&#x27;),
+ (&#x27;nb&#x27;, &#x27;Norwegian Bokmål&#x27;),
+ (&#x27;ne&#x27;, &#x27;Nepali&#x27;),
+ (&#x27;nl&#x27;, &#x27;Dutch&#x27;),
+ (&#x27;nn&#x27;, &#x27;Norwegian Nynorsk&#x27;),
+ (&#x27;os&#x27;, &#x27;Ossetic&#x27;),
+ (&#x27;pa&#x27;, &#x27;Punjabi&#x27;),
+ (&#x27;pl&#x27;, &#x27;Polish&#x27;),
+ (&#x27;pt&#x27;, &#x27;Portuguese&#x27;),
+ (&#x27;pt-br&#x27;, &#x27;Brazilian Portuguese&#x27;),
+ (&#x27;ro&#x27;, &#x27;Romanian&#x27;),
+ (&#x27;ru&#x27;, &#x27;Russian&#x27;),
+ (&#x27;sk&#x27;, &#x27;Slovak&#x27;),
+ (&#x27;sl&#x27;, &#x27;Slovenian&#x27;),
+ (&#x27;sq&#x27;, &#x27;Albanian&#x27;),
+ (&#x27;sr&#x27;, &#x27;Serbian&#x27;),
+ (&#x27;sr-latn&#x27;, &#x27;Serbian Latin&#x27;),
+ (&#x27;sv&#x27;, &#x27;Swedish&#x27;),
+ (&#x27;sw&#x27;, &#x27;Swahili&#x27;),
+ (&#x27;ta&#x27;, &#x27;Tamil&#x27;),
+ (&#x27;te&#x27;, &#x27;Telugu&#x27;),
+ (&#x27;tg&#x27;, &#x27;Tajik&#x27;),
+ (&#x27;th&#x27;, &#x27;Thai&#x27;),
+ (&#x27;tk&#x27;, &#x27;Turkmen&#x27;),
+ (&#x27;tr&#x27;, &#x27;Turkish&#x27;),
+ (&#x27;tt&#x27;, &#x27;Tatar&#x27;),
+ (&#x27;udm&#x27;, &#x27;Udmurt&#x27;),
+ (&#x27;uk&#x27;, &#x27;Ukrainian&#x27;),
+ (&#x27;ur&#x27;, &#x27;Urdu&#x27;),
+ (&#x27;uz&#x27;, &#x27;Uzbek&#x27;),
+ (&#x27;vi&#x27;, &#x27;Vietnamese&#x27;),
+ (&#x27;zh-hans&#x27;, &#x27;Simplified Chinese&#x27;),
+ (&#x27;zh-hant&#x27;, &#x27;Traditional Chinese&#x27;)]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES_BIDI</td>
+          <td class="code"><pre>[&#x27;he&#x27;, &#x27;ar&#x27;, &#x27;ar-dz&#x27;, &#x27;fa&#x27;, &#x27;ur&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_CODE</td>
+          <td class="code"><pre>&#x27;en-us&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_AGE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_NAME</td>
+          <td class="code"><pre>&#x27;django_language&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_PATH</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_SAMESITE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOCALE_PATHS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING_CONFIG</td>
+          <td class="code"><pre>&#x27;logging.config.dictConfig&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_REDIRECT_URL</td>
+          <td class="code"><pre>&#x27;/accounts/profile/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_URL</td>
+          <td class="code"><pre>&#x27;/accounts/login/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGOUT_REDIRECT_URL</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MANAGERS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_ROOT</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_URL</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MESSAGE_STORAGE</td>
+          <td class="code"><pre>&#x27;django.contrib.messages.storage.fallback.FallbackStorage&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIDDLEWARE</td>
+          <td class="code"><pre>[&#x27;django.middleware.security.SecurityMiddleware&#x27;,
+ &#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;,
+ &#x27;django.middleware.common.CommonMiddleware&#x27;,
+ &#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;,
+ &#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;,
+ &#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;,
+ &#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIGRATION_MODULES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MONTH_DAY_FORMAT</td>
+          <td class="code"><pre>&#x27;F j&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_GROUPING</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_HASHERS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_RESET_TIMEOUT</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PREPEND_WWW</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ROOT_URLCONF</td>
+          <td class="code"><pre>&#x27;config.urls&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECRET_KEY</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_BROWSER_XSS_FILTER</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_CONTENT_TYPE_NOSNIFF</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_INCLUDE_SUBDOMAINS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_PRELOAD</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_SECONDS</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_PROXY_SSL_HEADER</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_REDIRECT_EXEMPT</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_REFERRER_POLICY</td>
+          <td class="code"><pre>&#x27;same-origin&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_SSL_HOST</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_SSL_REDIRECT</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_EMAIL</td>
+          <td class="code"><pre>&#x27;root@localhost&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_CACHE_ALIAS</td>
+          <td class="code"><pre>&#x27;default&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_AGE</td>
+          <td class="code"><pre>1209600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_NAME</td>
+          <td class="code"><pre>&#x27;sessionid&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_PATH</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_SAMESITE</td>
+          <td class="code"><pre>&#x27;Lax&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_ENGINE</td>
+          <td class="code"><pre>&#x27;django.contrib.sessions.backends.db&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_FILE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SAVE_EVERY_REQUEST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SERIALIZER</td>
+          <td class="code"><pre>&#x27;django.contrib.sessions.serializers.JSONSerializer&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SETTINGS_MODULE</td>
+          <td class="code"><pre>&#x27;config.settings&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATETIME_FORMAT</td>
+          <td class="code"><pre>&#x27;m/d/Y P&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATE_FORMAT</td>
+          <td class="code"><pre>&#x27;m/d/Y&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SIGNING_BACKEND</td>
+          <td class="code"><pre>&#x27;django.core.signing.TimestampSigner&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SILENCED_SYSTEM_CHECKS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_DIRS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_FINDERS</td>
+          <td class="code"><pre>[&#x27;django.contrib.staticfiles.finders.FileSystemFinder&#x27;,
+ &#x27;django.contrib.staticfiles.finders.AppDirectoriesFinder&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_STORAGE</td>
+          <td class="code"><pre>&#x27;django.contrib.staticfiles.storage.StaticFilesStorage&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_ROOT</td>
+          <td class="code"><pre>&#x27;/home/ubuntu/encuentrameweb/static&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_URL</td>
+          <td class="code"><pre>&#x27;/static/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATES</td>
+          <td class="code"><pre>[{&#x27;APP_DIRS&#x27;: True,
+  &#x27;BACKEND&#x27;: &#x27;django.template.backends.django.DjangoTemplates&#x27;,
+  &#x27;DIRS&#x27;: [&#x27;/home/ubuntu/encuentrameweb/templates&#x27;],
+  &#x27;OPTIONS&#x27;: {&#x27;context_processors&#x27;: [&#x27;django.template.context_processors.debug&#x27;,
+                                     &#x27;django.template.context_processors.request&#x27;,
+                                     &#x27;django.contrib.auth.context_processors.auth&#x27;,
+                                     &#x27;django.contrib.messages.context_processors.messages&#x27;]}}]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_NON_SERIALIZED_APPS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_RUNNER</td>
+          <td class="code"><pre>&#x27;django.test.runner.DiscoverRunner&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>&#x27;,&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_FORMAT</td>
+          <td class="code"><pre>&#x27;P&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_INPUT_FORMATS</td>
+          <td class="code"><pre>[&#x27;%H:%M:%S&#x27;, &#x27;%H:%M:%S.%f&#x27;, &#x27;%H:%M&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_ZONE</td>
+          <td class="code"><pre>&#x27;UTC&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_I18N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_L10N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_TZ</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_HOST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_PORT</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WSGI_APPLICATION</td>
+          <td class="code"><pre>&#x27;config.wsgi.application&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>X_FRAME_OPTIONS</td>
+          <td class="code"><pre>&#x27;DENY&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YEAR_MONTH_FORMAT</td>
+          <td class="code"><pre>&#x27;F Y&#x27;</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+</div>
+
+  <div id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in your
+      Django settings file. Change that to <code>False</code>, and Django will
+      display a standard page generated by the handler for this status code.
+    </p>
+  </div>
+
+</body>
+</html>
