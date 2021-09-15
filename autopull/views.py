@@ -21,7 +21,7 @@ def git_pull(request):
         if client_ip_address in ip_network(valid_ip):
             break
     else:
-        return HttpResponseForbidden('Permission denied.')
+        return HttpResponse('Permission denied.')
 
     # Process the GitHub events
     event = request.META.get('HTTP_X_GITHUB_EVENT', 'ping')
