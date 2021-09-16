@@ -21,7 +21,6 @@
                 type: 'GET',
                 url: "{% url 'get_location' %}",
                 success: function(response){                       
-                    mymap.panTo([response.latitude, response.longitude])
                     console.log(response)
                     
                     var table = 
@@ -54,9 +53,10 @@
                         marker.setLatLng([response.latitude, response.longitude])
                         marker._popup.setContent(table)
                     } else {
+                        mymap.panTo([response.latitude, response.longitude])
                         marker = new L.marker([response.latitude, response.longitude]).addTo(mymap)
-                        marker.bindPopup(table).openPopup();
-
+                        var popup = new L.popup({autoPan: false}).setContent(table);
+                        marker.bindPopup(popup).openPopup();
                     }
                 },
                 error: function(response){
