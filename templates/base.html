@@ -30,6 +30,9 @@
     .table td {
         text-align: center;   
     }
+    .leaflet-control-container .leaflet-routing-container-hide {
+        display: none;
+    }
 </style>
 </head>
 <body>
@@ -43,7 +46,8 @@
     src="https://code.jquery.com/jquery-3.6.0.js"
     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
-
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    
     <div class="container-fluid">
         <div class="row flex-nowrap">
             {% include "sidebar.html" %}

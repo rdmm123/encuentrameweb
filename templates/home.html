@@ -6,65 +6,8 @@
 </div>
 
 <script>
-    var mymap = L.map('mapid');
-    mymap.invalidateSize();   
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap;',
-        maxZoom: 18,
-    }).addTo(mymap);
-    mymap.setZoom(16);
-
-    var marker;
-
-    function doPoll(){
-            $.ajax({
-                type: 'GET',
-                url: "{% url 'get_location' %}",
-                success: function(response){                       
-                    console.log(response)
-                    
-                    var table = 
-                    `
-                    <h5>
-                        <table class="table table-sm table-fit table-borderless mx-auto" id="pos">
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Latitud</th>
-                                    <td colspan="2" id="latitude"><span class="badge bg-light text-dark rounded-pill border border-dark">${response.latitude}</span></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Longitud</th>
-                                    <td colspan="2" id="longitude"><span class="badge bg-light text-dark rounded-pill border border-dark">${response.longitude}</span></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Fecha</th>
-                                    <td colspan="2" id="date"><span class="badge bg-light text-dark rounded-pill border border-dark">${response.date}</span></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Hora</th>
-                                    <td colspan="2" id="time"><span class="badge bg-light text-dark rounded-pill border border-dark">${response.time}</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </h5>
-                    `
-                    
-                    if (marker != undefined) {
-                        marker.setLatLng([response.latitude, response.longitude])
-                        marker._popup.setContent(table)
-                    } else {
-                        mymap.panTo([response.latitude, response.longitude])
-                        marker = new L.marker([response.latitude, response.longitude]).addTo(mymap)
-                        var popup = new L.popup({autoPan: false}).setContent(table);
-                        marker.bindPopup(popup).openPopup();
-                    }
-                },
-                error: function(response){
-                    console.log("error in ajax")
-                }
-            })
-            setTimeout(doPoll, 2000);
-        }
-
-    $(document).ready(doPoll);
+    var getLocationUrl = "{% url 'get_location' %}"
 </script>
+
+{% load static %}
+<script src="{% static 'locations/location.js' %}"></script>

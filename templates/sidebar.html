@@ -3,11 +3,19 @@
         <a href="" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <i class="fs-4 bi-geo-alt-fill"></i> <span class="ms-3 fs-4 d-none d-sm-inline">Encuentrame</span>
         </a>
-        <div class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="tab" role="tablist" aria-orientation="vertical">
-            <button class="nav-link active" id="location-tab" data-bs-toggle="pill" data-bs-target="#location" type="button" role="tab" aria-controls="location" aria-selected="true">
+        <div class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-stretch" id="tab" role="tablist" aria-orientation="vertical">
+            <button class="nav-link active btn-block text-start" id="location-tab" data-bs-toggle="pill" data-bs-target="#location" type="button" role="tab" aria-controls="location" aria-selected="true">
                 <i class="me-1 fs-4 bi-pin-map"></i> <span class="fs-5 ms-2 d-none d-sm-inline">Ubicación</span>
             </button>
-            <button class="nav-link" id="route-tab" data-bs-toggle="pill" data-bs-target="#route" type="button" role="tab" aria-controls="route" aria-selected="false">
+            <div class="collapse show ms-2" id="routeopt" data-bs-parent="#menu">
+                <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" value="" id="trace">
+                    <label class="form-check-label d-none d-sm-inline" for="trace">
+                      Trazar recorrido
+                    </label>
+                </div>
+            </div>
+            <button class="nav-link btn-block text-start" id="route-tab" data-bs-toggle="pill" data-bs-target="#route" type="button" role="tab" aria-controls="route" aria-selected="false">
                 <i class="me-1 fs-4 bi-map"></i> <span class="fs-5 ms-2 d-none d-sm-inline">Histórico</span></a>
             </button>
         </div>
@@ -23,5 +31,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $("#location-tab").click(function(){
+            $("#routeopt").collapse('toggle');
+        });
+        $("#route-tab").click(function(){
+            $("#routeopt").collapse('hide');
+        });
+    });
+</script>
 
 
