@@ -38,14 +38,13 @@ function doPoll(){
                 var popup = new L.popup({autoPan: false}).setContent(table);
                 marker.bindPopup(popup).openPopup();
                 first = false;
-                locList.push(currLoc);
             }
 
             marker.setLatLng(currLoc);
             marker._popup.setContent(table);
             
             lastLoc = locList.at(-1);
-            if (!arraysEqual(currLoc, lastLoc)) {
+            if (!arraysEqual(currLoc, lastLoc) && traceRoute) {
                 locList.push(currLoc);
             }
 
@@ -101,6 +100,7 @@ function generateTable(lat, lon, date, time) {
 $('#trace').change(function() {
     traceRoute = $(this).prop('checked');
     if (traceRoute) {
+        locList.push(currLoc)
         startMarker = L.marker(currLoc).addTo(mymap);
         routing = L.Routing.control({
             plan: L.Routing.plan([], {
