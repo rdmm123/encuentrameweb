@@ -3,6 +3,7 @@ import MySQLdb, sys
 from twisted.internet.protocol import DatagramProtocol
 from twisted.internet import reactor
 from decouple import config
+from datetime import datetime, timezone
 
 def connect_db():
     con = MySQLdb.connect(
@@ -27,6 +28,7 @@ class Server(DatagramProtocol):
         data_str = data.decode('utf-8')
         print(f"Received data from {addr}:\n\t{data_str}")
         location = data_str.split(",")
+        timestamp = datetime.fromtimestamp(location[2], timezone.utc)
 
         con, cur = connect_db()
         
@@ -38,7 +40,7 @@ class Server(DatagramProtocol):
         else:
             newid = 1
 
-        cur.execute(f"INSERT INTO locations_location VALUES ('{newid}', '{location[0]}', '{location[1]}', '{location[2]}', '{location[3]}')")
+        cur.execute(f"INSERT INTO locations_location VALUES ('{newid}', '{location[0]}', '{location[1]}', '{location[2]}')")
         con.commit()
         cur.close()
         con.close()
