@@ -13,7 +13,7 @@ var routing;
 var first = true; // To check if it is the first time the function executes
 var marker, startMarker; // Initialize marker
 var locList = [] // List of received locations
-var traceRoute; // To check if the route needs to be traced
+var traceRoute = true; // To check if the route needs to be traced
 var polyline = L.polyline([], {color: 'red'});
 
 $(document).ready(doPoll); // Execute the function as soon as the page is ready
@@ -33,6 +33,17 @@ function doPoll(){
 
             // The initial execution of the function initializes markers and popups
             if (first) {
+                startMarker = L.marker(currLoc).addTo(mymap);
+                routing = L.Routing.control({
+                    plan: L.Routing.plan([], {
+                        createMarker: () => false
+                    }),
+                    fitSelectedRoutes: false,
+                    waypointMode: 'snap',
+                    autoRoute: false,
+                }).addTo(mymap);
+                routing.route();
+
                 mymap.panTo(currLoc); // Centers the map to the current location
                 marker = new L.marker(currLoc).addTo(mymap);
                 var popup = new L.popup({autoPan: false}).setContent(table);
