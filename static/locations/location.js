@@ -8,13 +8,12 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 mymap.setZoom(16);
 
 
-// Initialize routing machine for map
-var routing;
 var first = true; // To check if it is the first time the function executes
 var marker, startMarker; // Initialize marker
 var locList = [] // List of received locations
 var traceRoute = true; // To check if the route needs to be traced
 var polyline = L.polyline([], {color: 'red'});
+var currLoc;
 
 $(document).ready(doPoll); // Execute the function as soon as the page is ready
 
@@ -34,15 +33,6 @@ function doPoll(){
             // The initial execution of the function initializes markers and popups
             if (first) {
                 startMarker = L.marker(currLoc).addTo(mymap);
-                routing = L.Routing.control({
-                    plan: L.Routing.plan([], {
-                        createMarker: () => false
-                    }),
-                    fitSelectedRoutes: false,
-                    waypointMode: 'snap',
-                    autoRoute: false,
-                }).addTo(mymap);
-                routing.route();
 
                 mymap.panTo(currLoc); // Centers the map to the current location
                 marker = new L.marker(currLoc).addTo(mymap);
@@ -61,10 +51,7 @@ function doPoll(){
 
             console.log(locList);
             if (traceRoute) {
-                // polyline.setLatLngs(locList).addTo(mymap);
-                routing.setWaypoints(locList);
-                routing.route({allowUTurns: true})
-                routing.hide()
+                polyline.setLatLngs(locList).addTo(mymap);
             }
         },
         error: function(response){
@@ -113,18 +100,8 @@ $('#trace').change(function() {
     if (traceRoute) {
         locList.push(currLoc)
         startMarker = L.marker(currLoc).addTo(mymap);
-        routing = L.Routing.control({
-            plan: L.Routing.plan([], {
-                createMarker: () => false
-            }),
-            fitSelectedRoutes: false,
-            waypointMode: 'snap',
-            autoRoute: false,
-        }).addTo(mymap);
-        routing.route();
     } else {
         locList = []
-        mymap.removeControl(routing);
         mymap.removeLayer(startMarker);
         polyline.setLatLngs([]);
     }

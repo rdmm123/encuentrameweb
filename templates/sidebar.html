@@ -39,6 +39,7 @@
         });
         $("#route-tab").click(function(){
             $("#routeopt").collapse('hide');
+            setTimeout(function(){routemap.invalidateSize();},1000);
         });
     });
 </script>
