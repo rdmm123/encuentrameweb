@@ -40,7 +40,6 @@ class Server(DatagramProtocol):
             newid = 1
         
         timestamp_str = location[2] + " " + location[3]
-        timestamp = dt.datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
 
         cur.execute(f"INSERT INTO locations_location VALUES ('{newid}', '{location[0]}', '{location[1]}', '{timestamp_str}')")
         con.commit()
