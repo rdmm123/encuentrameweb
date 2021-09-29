@@ -24,9 +24,12 @@ function doPoll(){
         url: getLocationUrl,
         success: function(response){                       
             console.log(response) // To check if everything is correct
+            var date = response.timestamp.split("T")[0];
+            var time = response.timestamp.split("T")[1].split("Z")[0];
+            
 
             // Generates the HTML table that contains the location data
-            table = generateTable(response.latitude, response.longitude, response.date, response.time);
+            table = generateTable(response.latitude, response.longitude, date, time);
             
             currLoc = [response.latitude, response.longitude];
 

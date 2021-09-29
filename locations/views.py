@@ -18,21 +18,13 @@ def get_location(request):
     last_location_json = json.loads(serializers.serialize('json', [last_location]))[0]
     return JsonResponse(last_location_json["fields"])
 
-def get_route(request, date, start_time, end_time):
-    route_query = Location.objects.filter(date=date)
+def get_route(request, start_ts, end_ts):
+    start_dt = dt.datetime.strptime(start_ts, "%Y-%m-%d_%H:%M:%S")
+    end_dt = dt.datetime.strptime(end_ts, "%Y-%m-%d_%H:%M:%S")
+    route_query = Location.objects.filter(timestamp__range=(start_dt, end_dt))
     route_values = route_query.values()
 
-    start_dt = dt.time(*map(int, start_time.split(':')))
-    end_dt = dt.time(*map(int, end_time.split(':')))
-
-    final_query = []
-
-    for location in route_values:
-        curr_dt = dt.time(*map(int, location["time"].split(':')))
-        if isNowInTimePeriod(start_dt, end_dt, curr_dt):
-            final_query.append(location)
-
-    route_json = {'route': final_query}
+    route_json = {'route': list(route_values)}
     return  JsonResponse(route_json, safe=False)
 
 def isNowInTimePeriod(startTime, endTime, nowTime): 
