@@ -29,7 +29,7 @@ function doPoll(){
             
 
             // Generates the HTML table that contains the location data
-            table = generateTable(response.latitude, response.longitude, date, time);
+            table = generateTable(response.latitude, response.longitude, date, time, 5);
             
             currLoc = [response.latitude, response.longitude];
 
@@ -69,11 +69,11 @@ function arraysEqual(a1,a2) {
     return JSON.stringify(a1)==JSON.stringify(a2);
 }
 
-function generateTable(lat, lon, date, time) {
+function generateTable(lat, lon, date, time, txtSize) {
     var table = 
         `
-        <h5>
-            <table class="table table-sm table-fit table-borderless mx-auto" id="pos">
+        <h${txtSize}>
+            <table class="table table-sm table-fit table-borderless mx-auto my-0 py-0" id="pos">
                 <tbody>
                     <tr>
                         <th scope="row">Latitud</th>
@@ -93,7 +93,7 @@ function generateTable(lat, lon, date, time) {
                     </tr>
                 </tbody>
             </table>
-        </h5>
+        </h${txtSize}>
         `;
     return table;
 }

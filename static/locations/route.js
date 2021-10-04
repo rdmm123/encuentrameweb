@@ -5,8 +5,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(routemap);
 
 var route = L.polyline([], {color: 'red'});
-var marker1 =  L.marker([]); 
-var marker2 =  L.marker([]); 
+var routeMarker = L.marker([]);
+var rangeCircle = L.circle([]);
+// var marker1 =  L.marker([]); 
+// var marker2 =  L.marker([]); 
+var locationList, routeList;
 
 
 $(function() {
@@ -35,8 +38,8 @@ $(function() {
             type: 'GET',
             url: routeUrl,
             success: function(response){
-                routemap.removeLayer(marker1);
-                routemap.removeLayer(marker2);
+                // routemap.removeLayer(marker1);
+                // routemap.removeLayer(marker2);
                 route.setLatLngs([])
 
                 console.log(response) // To check if everything is correct
@@ -47,19 +50,19 @@ $(function() {
                 route.setLatLngs(locationList).addTo(routemap);
                 routemap.fitBounds(route.getBounds());
 
-                marker1.setLatLng(locationList[0]).addTo(routemap);
-                var startDate = routeList[0].timestamp.split("T")[0];
-                var startTime = routeList[0].timestamp.split("T")[1].split("Z")[0];
-                startTable = generateTable(routeList[0].latitude, routeList[0].longitude, startDate, startTime);
-                var popup1 = new L.popup({autoPan: false}).setContent(startTable);
-                marker1.bindPopup(popup1).openPopup();
+                // marker1.setLatLng(locationList[0]).addTo(routemap);
+                // var startDate = routeList[0].timestamp.split("T")[0];
+                // var startTime = routeList[0].timestamp.split("T")[1].split("Z")[0];
+                // startTable = generateTable(routeList[0].latitude, routeList[0].longitude, startDate, startTime);
+                // var popup1 = new L.popup({autoPan: false}).setContent(startTable);
+                // marker1.bindPopup(popup1).openPopup();
 
-                marker2.setLatLng(locationList.at(-1)).addTo(routemap);
-                var endDate = routeList.at(-1).timestamp.split("T")[0];
-                var endTime = routeList.at(-1).timestamp.split("T")[1].split("Z")[0];
-                endTable = generateTable(routeList.at(-1).latitude, routeList.at(-1).longitude, endDate, endTime);
-                popup2 = new L.popup({autoPan: false}).setContent(endTable);
-                marker2.bindPopup(popup2).openPopup();
+                // marker2.setLatLng(locationList.at(-1)).addTo(routemap);
+                // var endDate = routeList.at(-1).timestamp.split("T")[0];
+                // var endTime = routeList.at(-1).timestamp.split("T")[1].split("Z")[0];
+                // endTable = generateTable(routeList.at(-1).latitude, routeList.at(-1).longitude, endDate, endTime);
+                // popup2 = new L.popup({autoPan: false}).setContent(endTable);
+                // marker2.bindPopup(popup2).openPopup();
             },
             error: function(response){
                 console.log("error in ajax")
@@ -71,3 +74,38 @@ $(function() {
         $(this).val('');
     });
 });
+
+routemap.on('click', function(e) {
+    $(".item").remove()
+    var distances =  locationList.map((latLng) => routemap.distance(latLng, e.latlng));
+    var distancesRounded = distances.map((d) => Math.ceil(d/25) * 25);
+
+    console.log(distances);
+    console.log(distancesRounded);
+    var rangeMts = 25;
+    
+    var minIdx = index(distancesRounded, rangeMts);
+
+    routeMarker.setLatLng(e.latlng).addTo(routemap);
+    rangeCircle.setLatLng(e.latlng).setRadius(25).addTo(routemap);
+
+    minIdx.forEach(idx => {
+        var routeDate = routeList[idx].timestamp.split("T")[0];
+        var routeTime = routeList[idx].timestamp.split("T")[1].split("Z")[0];
+        
+        var routeTable = generateTable(routeList[idx].latitude, routeList[idx].longitude, routeDate, routeTime, 6);
+        var toappend = '<div class="container-fluid border bg-white rounded-max pt-2 mb-2 item px-0">' + routeTable + '<div/>'
+        $("#loc-list").append(toappend);
+    });
+    
+})
+
+function index(arr, num) {
+    var idxs  = [];
+    arr.filter(function(elem, index) {
+        if(elem == num){
+            idxs.push(index)
+        }
+    });
+    return idxs
+}
