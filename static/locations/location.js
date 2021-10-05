@@ -32,7 +32,7 @@ function doPoll(){
             table = generateTable(response.latitude, response.longitude, date, time, 5);
             
             currLoc = [response.latitude, response.longitude];
-           
+           mymap.panTo(currLoc);
 
             // The initial execution of the function initializes markers and popups
             if (first) {
