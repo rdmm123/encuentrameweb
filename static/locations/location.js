@@ -5,7 +5,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap;',
     maxZoom: 18,
 }).addTo(mymap);
-mymap.maxZoom(16);
+mymap.setZoom(16);
 
 
 var first = true; // To check if it is the first time the function executes
