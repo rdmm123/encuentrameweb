@@ -49,20 +49,6 @@ $(function() {
                 })
                 route.setLatLngs(locationList).addTo(routemap);
                 routemap.fitBounds(route.getBounds());
-
-                // marker1.setLatLng(locationList[0]).addTo(routemap);
-                // var startDate = routeList[0].timestamp.split("T")[0];
-                // var startTime = routeList[0].timestamp.split("T")[1].split("Z")[0];
-                // startTable = generateTable(routeList[0].latitude, routeList[0].longitude, startDate, startTime);
-                // var popup1 = new L.popup({autoPan: false}).setContent(startTable);
-                // marker1.bindPopup(popup1).openPopup();
-
-                // marker2.setLatLng(locationList.at(-1)).addTo(routemap);
-                // var endDate = routeList.at(-1).timestamp.split("T")[0];
-                // var endTime = routeList.at(-1).timestamp.split("T")[1].split("Z")[0];
-                // endTable = generateTable(routeList.at(-1).latitude, routeList.at(-1).longitude, endDate, endTime);
-                // popup2 = new L.popup({autoPan: false}).setContent(endTable);
-                // marker2.bindPopup(popup2).openPopup();
             },
             error: function(response){
                 console.log("error in ajax")
@@ -77,17 +63,18 @@ $(function() {
 
 routemap.on('click', function(e) {
     $(".item").remove()
+
+    var rangeMts = 25;
+    routeMarker.setLatLng(e.latlng).addTo(routemap);
+    rangeCircle.setLatLng(e.latlng).setRadius(rangeMts).addTo(routemap);
+
     var distances =  locationList.map((latLng) => routemap.distance(latLng, e.latlng));
-    var distancesRounded = distances.map((d) => Math.ceil(d/25) * 25);
+    var distancesRounded = distances.map((d) => Math.ceil(d/rangeMts) * rangeMts);
 
     console.log(distances);
     console.log(distancesRounded);
-    var rangeMts = 25;
     
     var minIdx = index(distancesRounded, rangeMts);
-
-    routeMarker.setLatLng(e.latlng).addTo(routemap);
-    rangeCircle.setLatLng(e.latlng).setRadius(25).addTo(routemap);
 
     minIdx.forEach(idx => {
         var routeDate = routeList[idx].timestamp.split("T")[0];
