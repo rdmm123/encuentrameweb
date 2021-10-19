@@ -12,9 +12,12 @@ var plates = JSON.parse(document.getElementById('plates').textContent)
 var first = new Array(plates.length).fill(true);
 var marker = new Array(plates.length);
 var startMarker = new Array(plates.length);// Initialize marker
-var locList = new Array(plates.length).fill([]) // List of received locations
+var locList = new Array(plates.length).fill().map(() => []) // List of received locations
+var lastLoc = new Array(plates.length);
 var traceRoute = true; // To check if the route needs to be traced
-var polyline = new Array(plates.length).fill(L.polyline([], {color: 'red'}));
+var polyline = new Array(plates.length);
+polyline[0] = L.polyline([], {color: 'red'})
+polyline[1] = L.polyline([], {color: 'blue'})
 var currLoc = new Array(plates.length);
 var getLocationUrl = "ajax/get_location/"
 
@@ -33,7 +36,7 @@ function doPoll(){
                 
     
                 // Generates the HTML table that contains the location data
-                table = generateTable(response.latitude, response.longitude, date, time, response.plate, 5);
+                table = generateTable(response.latitude, response.longitude, date, time, response.plate, 6);
                 
                 currLoc[i] = [response.latitude, response.longitude];
     
@@ -44,21 +47,22 @@ function doPoll(){
                     marker[i] = new L.marker(currLoc[i]).addTo(mymap);
                     var popup = new L.popup({autoPan: false}).setContent(table);
                     marker[i].bindPopup(popup).openPopup();
+                    console.log(JSON.parse(JSON.stringify(locList[i])), i);
                     first[i] = false;
                 }
     
                 marker[i].setLatLng(currLoc[i]);
                 marker[i]._popup.setContent(table);
                 
-                var lastLoc = locList[i].at(-1);
-                console.log(lastLoc, i);
-                console.log(currLoc[i], i);
-                if (!arraysEqual(currLoc[i], lastLoc) && traceRoute && lastLoc != undefined) {
+                lastLoc[i] = locList[i].at(-1);
+                
+                console.log(arraysEqual(currLoc[i], lastLoc[i]))
+                if (!arraysEqual(currLoc[i], lastLoc[i]) && traceRoute) {
                     locList[i].push(currLoc[i]);
                 }
-                console.log(locList[i], i)
     
                 if (traceRoute) {
+                    console.log(JSON.parse(JSON.stringify(locList[i])), i);
                     polyline[i].setLatLngs(locList[i]).addTo(mymap);
                 }
             },
