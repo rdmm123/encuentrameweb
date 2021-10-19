@@ -9,11 +9,15 @@ import datetime as dt
 
 # Create your views here.
 def homepage_view(request):
-    context = {"home_page": "active"}
+    plates_query = Location.objects.values_list("plate", flat=True)
+    plates = list(dict.fromkeys(plates_query))
+
+    context = {"home_page": "active", "plates": plates}
     return(render(request, 'base.html', context))
 
-def get_location(request):
-    last_location = Location.objects.latest('id')
+def get_location(request, plate):
+    location_query = Location.objects.filter(plate=plate)
+    last_location = location_query.latest('id')
     
     last_location_json = json.loads(serializers.serialize('json', [last_location]))[0]
     return JsonResponse(last_location_json["fields"])

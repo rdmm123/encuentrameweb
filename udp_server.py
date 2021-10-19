@@ -28,7 +28,7 @@ def add_data(db_info, location):
         newid = 1
     
     timestamp_str = location[2] + " " + location[3]
-    cur.execute(f"INSERT INTO locations_location VALUES ('{newid}', '{location[0]}', '{location[1]}', '{timestamp_str}')")
+    cur.execute(f"INSERT INTO locations_location VALUES ('{newid}', '{location[0]}', '{location[1]}', '{timestamp_str}', '{location[4]}')")
     con.commit()
     cur.close()
     con.close()
