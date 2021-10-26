@@ -4,12 +4,16 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
 }).addTo(routemap);
 
-var route = L.polyline([], {color: 'red'});
+var route = new Array(allPlates.length);
+route[0] = L.polyline([], {color: 'red'});
+route[1] = L.polyline([], {color: 'blue'});
 var routeMarker = L.marker([]);
 var rangeCircle = L.circle([]);
 // var marker1 =  L.marker([]); 
 // var marker2 =  L.marker([]); 
 var locationList, routeList;
+var carRoute = $("#carselect-route :selected").val();
+var daterange, startDt, endDt, routeUrl;
 
 
 $(function() {
@@ -26,40 +30,27 @@ $(function() {
 
     $('input[name="datetimes"]').on('apply.daterangepicker', function(ev, picker) {
         $(this).val(picker.startDate.format('YYYY-MM-DD hh:mm') + ' a ' + picker.endDate.format('YYYY-MM-DD hh:mm'));
-        var daterange = document.getElementById("datetime").value
-        var startDt = daterange.split(" a ")[0]
-        var endDt = daterange.split(" a ")[1]
+        daterange = document.getElementById("datetime").value
+        startDt = daterange.split(" a ")[0]
+        endDt = daterange.split(" a ")[1]
         startDt = startDt.replace(" ", "_") + ":00"
         endDt = endDt.replace(" ", "_") + ":00"
         
-        var routeUrl = "ajax/get_route/" + startDt + "/" + endDt
+        routeUrl = "ajax/get_route/" + carRoute + "/" + startDt + "/" + endDt
 
-        $.ajax({
-            type: 'GET',
-            url: routeUrl,
-            success: function(response){
-                // routemap.removeLayer(marker1);
-                // routemap.removeLayer(marker2);
-                route.setLatLngs([])
-
-                console.log(response) // To check if everything is correct
-                routeList = response.route;
-                locationList = routeList.map(function (json) {
-                    return [json.latitude, json.longitude]
-                })
-                route.setLatLngs(locationList).addTo(routemap);
-                routemap.fitBounds(route.getBounds());
-            },
-            error: function(response){
-                console.log("error in ajax")
-            }
-        })
+        pollRoute();
     });
   
     $('input[name="datetimes"]').on('cancel.daterangepicker', function(ev, picker) {
         $(this).val('');
     });
 });
+
+$("#carselect-route").change(function() {
+    carRoute = $("#carselect-route :selected").val();
+    routeUrl = "ajax/get_route/" + carRoute + "/" + startDt + "/" + endDt
+    pollRoute();
+ });
 
 routemap.on('click', function(e) {
     $(".item").remove()
@@ -80,7 +71,7 @@ routemap.on('click', function(e) {
         var routeDate = routeList[idx].timestamp.split("T")[0];
         var routeTime = routeList[idx].timestamp.split("T")[1].split("Z")[0];
         
-        var routeTable = generateTable(routeList[idx].latitude, routeList[idx].longitude, routeDate, routeTime, 6);
+        var routeTable = generateTable(routeList[idx].latitude, routeList[idx].longitude, routeDate, routeTime, routeList[idx].plate, 6);
         var toappend = '<div class="container-fluid border bg-white rounded-max pt-2 mb-2 item px-0">' + routeTable + '<div/>'
         $("#loc-list").append(toappend);
     });
@@ -95,4 +86,39 @@ function index(arr, num) {
         }
     });
     return idxs
+}
+
+function pollRoute() {
+    $.ajax({
+        type: 'GET',
+        url: routeUrl,
+        success: function(response){
+            route.forEach(polyline => {
+                polyline.setLatLngs([]);
+            });
+
+            console.log(response) // To check if everything is correct
+            routeList = response.route;
+            console.log(routeList);
+            locationList = routeList.map(function (json) {
+                return [json.latitude, json.longitude]
+            })
+            console.log(locationList);
+
+            allPlates.forEach((plate, i) => {
+                console.log(plate)
+                plateRoute = routeList.filter((location) => location.plate == plate)
+                plateLocations = plateRoute.map(function (json) {
+                    return [json.latitude, json.longitude]
+                })
+                console.log(plateLocations)
+                route[i].setLatLngs(plateLocations).addTo(routemap);
+            });
+            routemap.fitBounds(L.polyline(locationList).getBounds());
+            
+        },
+        error: function(response){
+            console.log("error in ajax")
+        }
+    })
 }

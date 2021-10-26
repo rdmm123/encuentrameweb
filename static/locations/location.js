@@ -1,3 +1,5 @@
+var cars = $("#carselect :selected").val();
+console.log(cars);
 
 // Initialize and load map
 var mymap = L.map('mapid');
@@ -7,29 +9,35 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(mymap);
 mymap.setZoom(16);
 
-
-var plates = JSON.parse(document.getElementById('plates').textContent)
-var first = new Array(plates.length).fill(true);
-var marker = new Array(plates.length);
-var startMarker = new Array(plates.length);// Initialize marker
-var locList = new Array(plates.length).fill().map(() => []) // List of received locations
-var lastLoc = new Array(plates.length);
+var allPlates = JSON.parse(document.getElementById('plates').textContent);
+var plates = getPlates(cars);
+var first = new Array(allPlates.length).fill(true);
+var marker = new Array(allPlates.length);
+var startMarker = new Array(allPlates.length);// Initialize marker
+var locList = new Array(allPlates.length).fill().map(() => []) // List of received locations
+var lastLoc = new Array(allPlates.length);
 var traceRoute = true; // To check if the route needs to be traced
-var polyline = new Array(plates.length);
-polyline[0] = L.polyline([], {color: 'red'})
-polyline[1] = L.polyline([], {color: 'blue'})
-var currLoc = new Array(plates.length);
+var polyline = new Array(allPlates.length);
+polyline[0] = L.polyline([], {color: 'red'});
+polyline[1] = L.polyline([], {color: 'blue'});
+var currLoc = new Array(allPlates.length);
 var getLocationUrl = "ajax/get_location/"
 
 $(document).ready(doPoll); // Execute the function as soon as the page is ready
 
 // Make ajax requests to the server every 2 seconds
 function doPoll(){
-    plates.forEach((plate, i) => {
+    plates.forEach((plate) => {
         $.ajax({
             type: 'GET',
             url: getLocationUrl + plate,
-            success: function(response){                       
+            success: function(response){  
+                i = allPlates.indexOf(plate);
+                if (plates.length <= 1) {
+                    var toRemove = removeElement(plates[0], allPlates);
+                    clearMap(toRemove);
+                }
+
                 console.log(response, i) // To check if everything is correct
                 var date = response.timestamp.split("T")[0];
                 var time = response.timestamp.split("T")[1].split("Z")[0];
@@ -39,6 +47,9 @@ function doPoll(){
                 table = generateTable(response.latitude, response.longitude, date, time, response.plate, 6);
                 
                 currLoc[i] = [response.latitude, response.longitude];
+                if (plates.length <= 1) {
+                    mymap.panTo(currLoc[i])
+                }
     
                 // The initial execution of the function initializes markers and popups
                 if (first[i]) {
@@ -114,7 +125,7 @@ function generateTable(lat, lon, date, time, plate, txtSize) {
 
 $('#trace').change(function() {
     traceRoute = $(this).prop('checked');
-    plates.forEach((plate, i) => {
+    allPlates.forEach((plate, i) => {
         if (traceRoute) {
             locList[i].push(currLoc[i])
             startMarker[i] = L.marker(currLoc[i]).addTo(mymap);
@@ -124,4 +135,45 @@ $('#trace').change(function() {
             polyline[i].setLatLngs([]);
         }
     });
- })
+ });
+
+ $("#carselect").change(function() {
+    var cars = $("#carselect :selected").val();
+    console.log(cars);
+    plates = getPlates(cars);
+    if (plates.length <= 1) {
+        var toRemove = removeElement(plates[0], allPlates);
+        clearMap(toRemove);
+    }
+ });
+
+ function getPlates(opt) {
+     var plates;
+     if (opt == "all") {
+        plates = allPlates;
+     } else {
+        plates = [opt]
+     }
+     console.log(plates)
+     return plates;
+ }
+
+ function clearMap(platesToRemove) {
+    allPlates.forEach((plate, i) => {
+        if (platesToRemove.includes(plate)) {
+            locList[i] = [];
+            mymap.removeLayer(startMarker[i]);
+            mymap.removeLayer(marker[i]);
+            polyline[i].setLatLngs([]);
+            first[i] = true;
+        }
+    });
+ }
+
+ function removeElement(element, array) {
+    var filtered = array.filter(function(value, index, arr){ 
+        return value!=element;
+    });
+    return filtered;
+ }
+

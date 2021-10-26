@@ -6,6 +6,15 @@
     <h4 class="pt-4 pb-3">Trazado Histórico de Ruta</h4>
     <form autocomplete="off" action="javascript:void(0);">
         <div class="row d-xl-flex justify-content-start form-group">
+            <label for="car" class="col-sm-auto form-label pt-1"><span class="fs-5 fw-bold">Vehículo:</span></label>
+            <div class="col-sm-auto">
+                <select class="form-select car" id="carselect-route" aria-label="Car Selection">
+                    <option value="all" selected>Todos</option>
+                    {% for plate in plates %}
+                    <option value="{{plate}}">{{plate}}</option>
+                    {% endfor %}
+                </select>
+            </div>
             <label for="date" class="col-sm-auto form-label pt-1"><span class="fs-5 fw-bold">Rango de fecha y hora:</span></label>
             <div class="col-sm-4">
                 <div class="input-group date" id="datepicker">
@@ -13,6 +22,7 @@
                 </div>
             </div>
         </div>
+        
     </form>
 </div>
 
