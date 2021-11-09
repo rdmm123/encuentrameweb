@@ -71,7 +71,7 @@ routemap.on('click', function(e) {
         var routeDate = routeList[idx].timestamp.split("T")[0];
         var routeTime = routeList[idx].timestamp.split("T")[1].split("Z")[0];
         
-        var routeTable = generateTable(routeList[idx].latitude, routeList[idx].longitude, routeDate, routeTime, routeList[idx].plate, 6);
+        var routeTable = generateTable(routeList[idx].latitude, routeList[idx].longitude, routeDate, routeTime, routeList[idx].plate, routeList[idx].humidity, 6);
         var toappend = '<div class="container-fluid border bg-white rounded-max pt-2 mb-2 item px-0">' + routeTable + '<div/>'
         $("#loc-list").append(toappend);
     });
