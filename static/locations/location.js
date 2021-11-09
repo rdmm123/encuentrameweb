@@ -118,7 +118,7 @@ function generateTable(lat, lon, date, time, plate, humidity, txtSize) {
                     </tr>
                     <tr>
                         <th scope="row">Humedad</th>
-                        <td colspan="2" id="time"><span class="badge bg-light text-dark rounded-pill border border-dark">${humidity}</span></td>
+                        <td colspan="2" id="time"><span class="badge bg-light text-dark rounded-pill border border-dark">${humidity} %</span></td>
                     </tr>
                 </tbody>
             </table>
