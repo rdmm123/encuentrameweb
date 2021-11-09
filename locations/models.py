@@ -6,3 +6,4 @@ class Location(models.Model):
     longitude = models.CharField(max_length=50)
     plate = models.CharField(max_length=50)
     timestamp = models.DateTimeField()
+    humidity = models.CharField(max_length=50)
