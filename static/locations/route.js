@@ -14,7 +14,8 @@ var rangeCircle = L.circle([]);
 var locationList, routeList;
 var carRoute = $("#carselect-route :selected").val();
 var daterange, startDt, endDt, routeUrl;
-
+var rangeMts = 25;
+var clickPosition;
 
 $(function() {
     $('input[name="datetimes"]').daterangepicker({
@@ -46,6 +47,14 @@ $(function() {
     });
 });
 
+$("#slider-range").on('input', function() {
+    rangeMts = $("#slider-range").val();
+    $("#output-range").val(rangeMts);
+    if(clickPosition){
+        getLocations(clickPosition, rangeMts);
+    }
+ });
+
 $("#carselect-route").change(function() {
     carRoute = $("#carselect-route :selected").val();
     routeUrl = "ajax/get_route/" + carRoute + "/" + startDt + "/" + endDt
@@ -53,29 +62,8 @@ $("#carselect-route").change(function() {
  });
 
 routemap.on('click', function(e) {
-    $(".item").remove()
-
-    var rangeMts = 25;
-    routeMarker.setLatLng(e.latlng).addTo(routemap);
-    rangeCircle.setLatLng(e.latlng).setRadius(rangeMts).addTo(routemap);
-
-    var distances =  locationList.map((latLng) => routemap.distance(latLng, e.latlng));
-    var distancesRounded = distances.map((d) => Math.ceil(d/rangeMts) * rangeMts);
-
-    console.log(distances);
-    console.log(distancesRounded);
-    
-    var minIdx = index(distancesRounded, rangeMts);
-
-    minIdx.forEach(idx => {
-        var routeDate = routeList[idx].timestamp.split("T")[0];
-        var routeTime = routeList[idx].timestamp.split("T")[1].split("Z")[0];
-        
-        var routeTable = generateTable(routeList[idx].latitude, routeList[idx].longitude, routeDate, routeTime, routeList[idx].plate, routeList[idx].humidity, 6);
-        var toappend = '<div class="container-fluid border bg-white rounded-max pt-2 mb-2 item px-0">' + routeTable + '<div/>'
-        $("#loc-list").append(toappend);
-    });
-    
+    clickPosition = e.latlng;
+    getLocations(clickPosition, rangeMts)
 })
 
 function index(arr, num) {
@@ -121,4 +109,29 @@ function pollRoute() {
             console.log("error in ajax")
         }
     })
+}
+
+function getLocations(latlng, range) {
+    $(".item").remove()
+
+    routeMarker.setLatLng(latlng).addTo(routemap);
+    rangeCircle.setLatLng(latlng).setRadius(range).addTo(routemap);
+
+    var distances =  locationList.map((latLng) => routemap.distance(latLng, latlng));
+    var distancesRounded = distances.map((d) => Math.ceil(d/range) * range);
+
+    console.log(distances);
+    console.log(distancesRounded);
+    
+    var minIdx = index(distancesRounded, range);
+
+    minIdx.forEach(idx => {
+        var routeDate = routeList[idx].timestamp.split("T")[0];
+        var routeTime = routeList[idx].timestamp.split("T")[1].split("Z")[0];
+        
+        var routeTable = generateTable(routeList[idx].latitude, routeList[idx].longitude, routeDate, routeTime, routeList[idx].plate, routeList[idx].humidity, 6);
+        var toappend = '<div class="container-fluid border bg-white rounded-max pt-2 mb-2 item px-0">' + routeTable + '<div/>'
+        $("#loc-list").append(toappend);
+    });
+    
 }
